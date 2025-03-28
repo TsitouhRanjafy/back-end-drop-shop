@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./src/server.ts",
-    "start:build": "npx tsc && node ./dist/server.js"
+    "start:dev": "dotenvx run -- nodemon ./src/main.ts",
+    "start:build": "npx tsc && dotenvx run -- node ./dist/main.js"
   },
   "keywords": [],
   "author": "",
@@ -12,11 +12,14 @@
   "description": "",
   "dependencies": {
     "@dotenvx/dotenvx": "^1.39.0",
+    "@prisma/client": "^6.5.0",
     "express": "^4.21.2",
     "http-status-codes": "^2.3.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0"
+    "@types/express": "^5.0.0",
+    "prisma": "^6.5.0"
   }
 }
