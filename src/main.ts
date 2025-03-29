@@ -1,6 +1,7 @@
 import { createServer } from 'node:http'
 import { app } from './interfaces';
 import { env } from './interfaces';
+import { Request, Response } from 'express';
 
 const server = createServer(app);
 

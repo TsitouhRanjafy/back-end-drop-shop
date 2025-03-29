@@ -7,8 +7,9 @@ if (!JWT_KEY_SECRET){
     throw new Error(" JWT_KEY_SECRET n'est pas définie dans l'environnemment variable");
 }
 
-class Generator {
-    genererToken(user: Pick<IUser,"email" | "password">): string {
+class TokenService {
+
+    genererToken(user: Pick<IUser,"email" | "lastname">): string {
         if (!JWT_KEY_SECRET){
             throw new Error(" JWT_KEY_SECRET n'est pas définie dans l'environnemment variable");
         }
@@ -22,6 +23,7 @@ class Generator {
         return token;
     }
 
+
 }
 
-export default Generator
+export default TokenService

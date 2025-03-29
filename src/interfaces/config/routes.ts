@@ -1,11 +1,21 @@
-import SignupRouter from "../routes/user/singup.router";
-import { Generator, LoadUserReposiroty, SaveUserReposiroty } from "../../frameworks";
-import { SignupUserUseCase } from "../../core";
-import express from "express"
 
-const signupRouter = new SignupRouter(new SignupUserUseCase(new Generator,new LoadUserReposiroty,new SaveUserReposiroty))
+import { Request, Response } from "express"
+import { StatusCodes } from "http-status-codes";
+import { IHttpResponse } from '../../core';
+import express, { Router } from "express"
+import { signupRouter } from "./setup";
 
+const router: Router = express.Router();
 
-export {
-    signupRouter
-}
+router.get('/', (req: Request, res: Response) => {
+    res.status(StatusCodes.OK).send(`
+        <h  1 style="color:green;font-family: sans-serif;">NODE TS SERVER OK</h1>
+        `)
+})
+
+router.post('/auth/signup',async (req: Request,res: Response) => {
+    const response: IHttpResponse<{ token: string }> | IHttpResponse<{message: string}> = await signupRouter.handler(req,res);
+    res.status(response.statusCode).send(response.body);
+})
+
+export default router;

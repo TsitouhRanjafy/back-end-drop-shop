@@ -1,12 +1,12 @@
 import SaveUserReposiroty from "./database/postgresql/user/save-user.repository";
 import LoadUserReposiroty from "./database/postgresql/user/load-user.repository";
-import Generator from "./generators/generator";
-import { hashPassword } from "./secure/hashage.util";
+import TokenService from "./services/token.service";
+import Hashage from "./services/hashage.service";
 
 
 export {
     SaveUserReposiroty,
     LoadUserReposiroty,
-    Generator,
-    hashPassword
+    TokenService,
+    Hashage
 }

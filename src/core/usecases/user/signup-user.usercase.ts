@@ -1,28 +1,28 @@
 import IUser from "../../entities/type/user.type";
-import { Generator, hashPassword, LoadUserReposiroty, SaveUserReposiroty } from "../../../frameworks";
-
+import { TokenService, LoadUserReposiroty, SaveUserReposiroty, Hashage } from "../../../frameworks";
 
 
 class SignupUserUseCase {
     constructor(
-        private generator: Generator,
+        private tokenService: TokenService,
+        private hashageService: Hashage,
         private loadUserRepository: LoadUserReposiroty,
         private saveUserRepository: SaveUserReposiroty
     ){}
 
     async exec(user: Omit<IUser,"id">): Promise<string | null>{
-        const isExistUser: IUser | null = await this.loadUserRepository.getUserByEmail(user.email);
-        if(isExistUser){
-            return null;
-        }
+        let isExistUser: IUser | null = await this.loadUserRepository.getUserByEmail(user.email);
+        if(isExistUser) return null; 
+        isExistUser = await this.loadUserRepository.getUserByTel(user.tel);
+        if(isExistUser) return null; 
 
-        const passwordHashed: string = await hashPassword(user.password);
+        const passwordHashed: string = await this.hashageService.hash(user.password);
         await this.saveUserRepository.sinup({
             ...user,
             password: passwordHashed
         })
         
-        const accesToken: string = this.generator.genererToken({ email: user.email,password: passwordHashed })
+        const accesToken: string = this.tokenService.genererToken({ email: user.email,lastname: user.lastname})
         return accesToken;
     }
 }
