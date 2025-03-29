@@ -1,4 +1,3 @@
-import { Role } from "@prisma/client";
 import { ILoadUserRepository, IUser } from "../../../../core";
 import prisma from "../../prismaClient";
 
@@ -23,10 +22,6 @@ class LoadUserReposiroty implements ILoadUserRepository {
             return null;
         }
     }
-    
-    async getUserByIdAndEmail(id: number, email: string): Promise<IUser | null> {
-        throw new Error("Method not implemented.");
-    }   
 
 }
 

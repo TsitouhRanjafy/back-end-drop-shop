@@ -1,5 +1,5 @@
 class Validator {
-    private emailExp: RegExp = /email/
+    private emailExp = /email/
 
     isEmailValid(email: string): boolean {
         return this.emailExp.test(email);

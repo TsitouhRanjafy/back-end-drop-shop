@@ -9,7 +9,7 @@ class SignupRouter {
     constructor(private signupUseCase: SignupUserUseCase){}
 
     async handler(req: Request,res: Response): Promise<CustomHttpResponse> {
-        const user: Omit<IUser,"id"> = req.body;
+        const user: Omit<IUser,"id"> = req.body as Omit<IUser,"id">;
 
         try {
             if (!user.email || !user.firstname || !user.lastname || !user.password || !user.pays || !user.role || !user.tel || !user.adress){
