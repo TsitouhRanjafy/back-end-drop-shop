@@ -4,6 +4,7 @@ import { StatusCodes } from "http-status-codes";
 import { IHttpResponse } from '../../core';
 import express, { Router } from "express"
 import { signupRouter } from "./setup";
+import endpoints from "./endpoints";
 
 const router: Router = express.Router();
 
@@ -13,7 +14,7 @@ router.get('/', (req: Request, res: Response) => {
         `)
 })
 
-router.post('/auth/signup',async (req: Request,res: Response) => {
+router.post(endpoints.signup,async (req: Request,res: Response) => {
     const response: IHttpResponse<{ token: string }> | IHttpResponse<{message: string}> = await signupRouter.handler(req,res);
     res.status(response.statusCode).send(response.body);
 })
