@@ -1,1 +1,1 @@
-npm test:pre-commit
+npm run test:pre-commit
