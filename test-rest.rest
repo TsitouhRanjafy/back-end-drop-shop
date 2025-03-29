@@ -1,0 +1,22 @@
+### POST /auth/signup
+POST http://localhost:8080/auth/signup
+content-type: application/json
+
+{
+    "firstname": "Tsitohaina",
+    "lastname": "RAMIARANJAFY", 
+    "email": "ranjafytsito@gmail.com", 
+    "password": "azerty1234", 
+    "tel": "0382000243", 
+    "pays": "Madagascar", 
+    "adress":"Antananarivo", 
+    "role": "SELLER"  
+}
+
+
+### GET /
+GET http://localhost:8080/
+
+{
+
+}
