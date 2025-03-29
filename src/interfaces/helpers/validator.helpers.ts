@@ -4,6 +4,7 @@ class Validator {
     isEmailValid(email: string): boolean {
         return this.emailExp.test(email);
     }
+
 }
 
 export default Validator

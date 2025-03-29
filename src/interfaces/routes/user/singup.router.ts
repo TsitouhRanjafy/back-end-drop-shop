@@ -9,6 +9,14 @@ class SignupRouter {
         const user: Omit<IUser,"id"> = req.body;
 
         try {
+            if (!user.email || !user.firstname || !user.lastname || !user.password || !user.pays || !user.role || !user.tel || !user.adress){
+                return {
+                    body: {
+                        message: "all propriety is required"
+                    },
+                    statusCode: StatusCodes.BAD_REQUEST
+                }
+            }
             console.log(user);
             return {
                 body: {
