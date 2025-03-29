@@ -3,10 +3,15 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start:dev": "dotenvx run -- nodemon ./src/main.ts",
+    "start:dev": "dotenvx run -- nodemon ./src/main.ts", 
     "start:build": "npx tsc && dotenvx run -- node ./dist/main.js",
     "prepare": "husky",
-    "test:pre-commit": "lint-staged"
+    "test:pre-commit": "lint-staged",
+    "test:all":"jest --silent",
+    "test:jest":"jest -o --silent",
+    "test:prepush":"jest --bail --silent",
+    "test:ci":"npm run test:all -- --coverage --silent",
+    "fix:lint":"eslint --fix && git add --all"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +30,7 @@
     "typescript": "^5.8.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.27.0",
     "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.0",
@@ -32,6 +38,7 @@
     "@types/lint-staged": "^13.3.0",
     "eslint": "^9.23.0",
     "husky": "^9.1.7",
+    "jest": "^29.7.0",
     "lint-staged": "^15.5.0",
     "prisma": "^6.5.0",
     "typescript-eslint": "^8.28.0"

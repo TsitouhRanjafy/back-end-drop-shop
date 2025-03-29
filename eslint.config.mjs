@@ -18,6 +18,7 @@ export default tseslint.config(
 				projectService: { 
 					allowDefaultProject: [ 
 						"eslint.config.mjs",
+            "babel.config.js",
 					],
 					defaultProject: "tsconfig.json"
 				 },
