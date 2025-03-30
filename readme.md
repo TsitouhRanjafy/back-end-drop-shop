@@ -16,3 +16,8 @@
 │   └── ui/
 └── main.ts
 ```
+
+- **API DOC**:
+  ```
+  http://localhost:8080/api-docs/
+  ```
