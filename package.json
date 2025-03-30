@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start:dev": "dotenvx run -- nodemon ./src/main.ts", 
+    "start:dev": "dotenvx run -- nodemon ./src/main.ts",
     "start:build": "npx tsc && dotenvx run -- node ./dist/main.js",
     "prepare": "husky",
     "test:pre-commit": "lint-staged",
-    "test:all":"jest --silent",
-    "test:jest":"jest -o --silent",
-    "test:prepush":"jest --bail --silent",
-    "test:ci":"npm run test:all -- --coverage --silent",
-    "fix:lint":"eslint --fix && git add --all"
+    "test:all": "jest --silent",
+    "test:jest": "jest -o --silent",
+    "test:prepush": "jest --bail --silent",
+    "test:ci": "npm run test:all -- --coverage --silent",
+    "fix:lint": "eslint --fix && git add --all"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@dotenvx/dotenvx": "^1.39.0",
     "@prisma/client": "^6.5.0",
+    "@types/swagger-ui": "^3.52.4",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
@@ -27,6 +28,8 @@
     "jiti": "^2.4.2",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.9",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
@@ -36,6 +39,8 @@
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/lint-staged": "^13.3.0",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "eslint": "^9.23.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",

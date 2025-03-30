@@ -13,10 +13,10 @@ class SignupRouter {
 
         try {
             if (!user.email || !user.firstname || !user.lastname || !user.password || !user.pays || !user.role || !user.tel || !user.adress){
-                return response_bad_request('all propriety required');
+                return response_not_ok('all propriety required');
             }
             const token = await this.signupUseCase.exec(user);
-            if (!token) return response_bad_request('user already exist, change email or tel');
+            if (!token) return response_not_ok('user already exist, change email or tel');
 
             res.cookie(env.token_secret_key,token,{
                 httpOnly: true,
@@ -27,7 +27,7 @@ class SignupRouter {
             return response_ok(token);
         } catch (error) {
             console.log("Erreur lors du `SingupRouter` handle",error);
-            return response_bad_request(ReasonPhrases.BAD_REQUEST)
+            return response_not_ok(ReasonPhrases.INTERNAL_SERVER_ERROR,StatusCodes.INTERNAL_SERVER_ERROR)
         }
     }
 }
@@ -41,10 +41,10 @@ const response_ok = (token: string): CustomHttpResponse => {
     }
 }
 
-const response_bad_request = (message: string): CustomHttpResponse => {
+const response_not_ok = (message: string,statusCode: StatusCodes = StatusCodes.BAD_REQUEST): CustomHttpResponse => {
     return {
         body: { message },
-        statusCode: StatusCodes.BAD_REQUEST
+        statusCode: statusCode
     }
 }
 
