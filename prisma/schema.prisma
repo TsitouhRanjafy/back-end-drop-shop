@@ -21,6 +21,7 @@ model User {
     posts                   Post[]
     message                 Message[]
     command                 Command[]
+    comment                 Comment[]
 }
 
 model Admin {
@@ -60,6 +61,17 @@ model Post {
     user                    User                @relation(fields: [id_user],references: [id])
     command                 Command[]
     delete_post             DeletedPost[]
+    comment                 Comment[]
+}
+
+model Comment {
+    id                      Int                 @id @default(autoincrement())
+    content                 String              
+    id_post                 Int
+    id_user                 Int                 
+    date                    DateTime
+    post                    Post                @relation(fields: [id_post],references: [id])
+    user                    User                @relation(fields: [id_user],references: [id])
 }
 
 enum Type {
