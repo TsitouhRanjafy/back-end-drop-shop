@@ -1,8 +1,7 @@
-import { ReasonPhrases, StatusCodes } from "http-status-codes";
+import { StatusCodes } from "http-status-codes";
 import { IHttpResponse, IUser, SignupUserUseCase } from "../../../core";
 import { Request, Response } from "express";
 import env from "../../config/env";
-
 
 
 class SignupRouter {
@@ -13,7 +12,7 @@ class SignupRouter {
 
         try {
             const token = await this.signupUseCase.exec(user);
-            if (!token) return response_not_ok('user already exist, change email or tel');
+            if (!token) return response_not_ok('try to change email or password');
 
             res.cookie(env.token_secret_key,token,{
                 httpOnly: true,
@@ -23,22 +22,22 @@ class SignupRouter {
 
             return response_ok(token);
         } catch (error) {
-            console.log("Erreur lors du `SingupRouter` handle",error);
-            return response_not_ok(ReasonPhrases.INTERNAL_SERVER_ERROR,StatusCodes.INTERNAL_SERVER_ERROR)
+            console.error("Erreur lors du `SingupRouter` handle",error);
+            throw error;
         }
     }
 }
 
-type CustomHttpResponse = IHttpResponse<{ token: string }> | IHttpResponse<{message: string}>
+export type CustomHttpResponse = IHttpResponse<{ token: string }> | IHttpResponse<{message: string}>
 
-const response_ok = (token: string): CustomHttpResponse => {
+export const response_ok = (token: string): CustomHttpResponse => {
     return {
         body: { token },
         statusCode: StatusCodes.BAD_REQUEST
     }
 }
 
-const response_not_ok = (message: string,statusCode: StatusCodes = StatusCodes.BAD_REQUEST): CustomHttpResponse => {
+export const response_not_ok = (message: string,statusCode: StatusCodes = StatusCodes.BAD_REQUEST): CustomHttpResponse => {
     return {
         body: { message },
         statusCode: statusCode

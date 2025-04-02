@@ -1,10 +1,10 @@
 import { Request, Response } from "express"
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import express, { Router } from "express"
-import { signupRouter } from "./setup";
+import { loginRouter, signupRouter } from "./setup";
 import endpoints from "./endpoints";
 import { validationResult } from "express-validator";
-import { userSignupSchema } from "../helpers/user.schema";
+import { userLoginSchema, userSignupSchema } from "../helpers/user.schema";
 
 const router: Router = express.Router();
 
@@ -43,5 +43,24 @@ router.post(
         }
 });
 
+router.post(
+    endpoints.login,
+    userLoginSchema,
+    async (req: Request,res: Response) => {
+        const resulValidation = validationResult(req);
+        
+        try {
+            if (!resulValidation.isEmpty()){
+                res.status(StatusCodes.BAD_REQUEST).send({ message: resulValidation.array()[0].msg as string})
+                return;
+            }
+            const response = await loginRouter.handle(req,res);
+            res.status(response.statusCode).send(response.body);
+        } catch (error) {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
+            throw error;
+        }
+    }
+)
 
 export default router;
