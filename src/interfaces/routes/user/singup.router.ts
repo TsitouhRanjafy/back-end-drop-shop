@@ -12,9 +12,6 @@ class SignupRouter {
         const user: Omit<IUser,"id"> = req.body as Omit<IUser,"id">;
 
         try {
-            if (!user.email || !user.firstname || !user.lastname || !user.password || !user.pays || !user.role || !user.tel || !user.adress){
-                return response_not_ok('all propriety required');
-            }
             const token = await this.signupUseCase.exec(user);
             if (!token) return response_not_ok('user already exist, change email or tel');
 

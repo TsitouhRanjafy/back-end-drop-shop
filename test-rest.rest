@@ -5,9 +5,9 @@ content-type: application/json
 {
     "firstname": "Tsitohaina",
     "lastname": "RAMIARANJAFY", 
-    "email": "ranjafytsito@gmail.com", 
+    "email": "ra", 
     "password": "azerty1234", 
-    "tel": "0382000243", 
+    "tel": "03821", 
     "pays": "Madagascar", 
     "adress":"Antananarivo", 
     "role": "SELLER"  

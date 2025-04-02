@@ -1,12 +1,12 @@
 import IUser from "../../entities/type/user.type";
-import { TokenService, LoadUserReposiroty, SaveUserReposiroty, Hashage } from "../../../frameworks";
+import { TokenService, LoadUserRepository, SaveUserReposiroty, Hashage } from "../../../frameworks";
 
 
 class SignupUserUseCase {
     constructor(
         private tokenService: TokenService,
         private hashageService: Hashage,
-        private loadUserRepository: LoadUserReposiroty,
+        private loadUserRepository: LoadUserRepository,
         private saveUserRepository: SaveUserReposiroty
     ){}
 

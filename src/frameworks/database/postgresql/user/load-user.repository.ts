@@ -1,7 +1,7 @@
 import { ILoadUserRepository, IUser } from "../../../../core";
 import prisma from "../../prismaClient";
 
-class LoadUserReposiroty implements ILoadUserRepository {
+class LoadUserRepository implements ILoadUserRepository {
 
     async getUserByTel(tel: string): Promise<IUser | null> {
         const user: IUser | null = await prisma.user.findUnique({ where: { tel } })
@@ -25,4 +25,4 @@ class LoadUserReposiroty implements ILoadUserRepository {
 
 }
 
-export default LoadUserReposiroty;
+export default LoadUserRepository;
