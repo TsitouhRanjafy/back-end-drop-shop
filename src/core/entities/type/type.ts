@@ -10,7 +10,13 @@ interface IHttpResponse<Type> {
     statusCode: StatusCodes
 }
 
+interface IAuthUsecaseResponse {
+    id: number,
+    token: string,
+}
+
 export {
     IHttpRequest,
-    IHttpResponse
+    IHttpResponse,
+    IAuthUsecaseResponse
 }

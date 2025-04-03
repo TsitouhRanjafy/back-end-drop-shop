@@ -8,5 +8,5 @@ export {
     SaveUserReposiroty,
     LoadUserRepository,
     TokenService,
-    Hashage
+    Hashage,
 }

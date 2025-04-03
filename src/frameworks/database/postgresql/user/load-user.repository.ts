@@ -36,6 +36,18 @@ class LoadUserRepository implements ILoadUserRepository {
         }
     }
 
+    async getUserById(id: number): Promise<IUser | null> {
+        try {
+            const user: IUser | null = await prisma.user.findUnique({
+                where: { id: id }
+            })
+            return user;
+        } catch (error) {
+            console.error("Erreur lors de `getUserById`",error);
+            throw error;
+        }
+    }
+
 
 
 }

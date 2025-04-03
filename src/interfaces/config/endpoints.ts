@@ -1,6 +1,8 @@
 const endpoints = {
-    signup: '/auth/signup',
-    login: '/auth/login'
+    signup: '/signup',
+    login: '/login',
+    auth: '/auth',
+    docs:'/api-docs'
 }
 
 export default endpoints;

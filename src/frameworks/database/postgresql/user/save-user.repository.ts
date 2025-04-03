@@ -3,15 +3,15 @@ import prisma from "../../prismaClient";
 
 class SaveUserReposiroty implements ISaveUserRepository {
 
-    async sinup(user: Omit<IUser,"id">): Promise<void> {
+    async sinup(user: Omit<IUser,"id">): Promise<IUser> {
         try {
-            await prisma.user.create({
+            const newUser: IUser = await prisma.user.create({
                 data: user 
             })
-            return;
+            return newUser;
         } catch (error) {
-            console.log("Error lors `SaveUserReposiroty` singup",error);
-            return;
+            console.error("Error lors `SaveUserReposiroty` singup",error);
+            throw error
         }
     }
     

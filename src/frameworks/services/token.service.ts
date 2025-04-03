@@ -1,21 +1,13 @@
 import { IUser } from "../../core";
-import jwt from 'jsonwebtoken'
-
-const JWT_KEY_SECRET = process.env.JWT_KEY_SECRET;
-
-if (!JWT_KEY_SECRET){
-    throw new Error(" JWT_KEY_SECRET n'est pas définie dans l'environnemment variable");
-}
+import jwt, { JwtPayload } from 'jsonwebtoken'
+import { env } from "../../interfaces";
 
 class TokenService {
 
-    genererToken(user: Pick<IUser,"email" | "lastname">): string {
-        if (!JWT_KEY_SECRET){
-            throw new Error(" JWT_KEY_SECRET n'est pas définie dans l'environnemment variable");
-        }
+    generer(user: Pick<IUser,"id" | "email">): string {
         const token = jwt.sign(
             user,
-            JWT_KEY_SECRET,
+            env.jwt_secret_key,
             {
                 expiresIn: (24 * (60 *(60 * 1000))) // 24 heurs
             }
@@ -23,7 +15,15 @@ class TokenService {
         return token;
     }
 
-
+    verify(token: string): JwtPayload | string | null{
+        try {
+            const decode: JwtPayload | string = jwt.verify(token,env.jwt_secret_key);
+            return decode;
+        } catch (error) {
+            if (error instanceof jwt.JsonWebTokenError) return null;
+            throw error;
+        }
+    }
 }
 
 export default TokenService
