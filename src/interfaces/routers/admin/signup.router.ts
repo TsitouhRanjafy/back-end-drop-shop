@@ -11,7 +11,7 @@ class SignupAdminRouter {
 
         try {
             const usecaseResponse: IAuthUsecaseResponse | null = await this.signupUseCase.execute(admin);
-            if (!usecaseResponse) return response_not_ok('try to change email or password');
+            if (!usecaseResponse) return response_not_ok('try to change email or tel');
 
             res.cookie(env.token_secret_key,usecaseResponse.token,{
                 httpOnly: true,
