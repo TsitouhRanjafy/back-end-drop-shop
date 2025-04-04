@@ -1,12 +1,11 @@
 import { Request, Response } from "express"
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
-import express, { Router } from "express"
-import { authRouter, loginRouter, signupRouter } from "./setup";
-import endpoints from "./endpoints";
+import { authRouter, loginRouter, signupRouter } from "../setup";
+import endpoints from "../endpoints";
 import { validationResult } from "express-validator";
-import { userLoginSchema, userSignupSchema } from "../helpers/user.schema";
+import { userLoginSchema, userSignupSchema } from "../../helpers/user.schema";
+import { router } from "../setup";
 
-const router: Router = express.Router();
 
 router.get(
     '/', 
@@ -41,7 +40,8 @@ router.post(
             res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
             throw error;
         }
-});
+    }
+);
 
 router.post(
     endpoints.login,

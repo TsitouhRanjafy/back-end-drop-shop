@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
-import { Hashage, LoadUserRepository, TokenService } from "../../../frameworks";
-import { IAuthUsecaseResponse } from "../../entities/type/type";
+import { Hashage, LoadUserRepository, TokenService } from "../../../../frameworks";
+import { IAuthUsecaseResponse } from "../../../entities/type/type";
 
 
 class LoginUserUseCase {

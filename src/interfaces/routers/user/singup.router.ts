@@ -1,7 +1,7 @@
-import { StatusCodes } from "http-status-codes";
-import { IAuthUsecaseResponse, IHttpResponse, IUser, SignupUserUseCase } from "../../../core";
+import { CustomHttpResponse, IAuthUsecaseResponse, IUser, SignupUserUseCase } from "../../../core";
 import { Request, Response } from "express";
 import env from "../../config/env";
+import { response_not_ok, response_ok } from "../../helpers/custome-reponse.reponse";
 
 
 class SignupUserRouter {
@@ -25,22 +25,6 @@ class SignupUserRouter {
             console.error("Erreur lors du `SingupRouter` handle",error);
             throw error;
         }
-    }
-}
-
-export type CustomHttpResponse = IHttpResponse<{ id: number,token: string }> | IHttpResponse<{message: string}>
-
-export const response_ok = (id: number, token: string): CustomHttpResponse => {
-    return {
-        body: { id,token },
-        statusCode: StatusCodes.BAD_REQUEST
-    }
-}
-
-export const response_not_ok = (message: string,statusCode: StatusCodes = StatusCodes.BAD_REQUEST): CustomHttpResponse => {
-    return {
-        body: { message },
-        statusCode: statusCode
     }
 }
 

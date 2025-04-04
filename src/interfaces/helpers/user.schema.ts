@@ -98,7 +98,7 @@ const userLoginSchema = checkSchema({
         errorMessage: "Invalid role",
         isEmpty: { negated: true },
         isIn: {
-            options: [["SELLER","BUYER","ADMIN"]]
+            options: [["SELLER","BUYER"]]
         },
     }
 })

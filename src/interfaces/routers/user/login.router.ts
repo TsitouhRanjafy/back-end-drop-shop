@@ -1,7 +1,7 @@
-import { IAuthUsecaseResponse, IUser, LoginUserUseCase } from "../../../core";
+import { CustomHttpResponse, IAuthUsecaseResponse, IUser, LoginUserUseCase } from "../../../core";
 import { Request, Response } from "express";
-import { CustomHttpResponse, response_not_ok, response_ok } from "./singup.router";
 import env from "../../config/env";
+import { response_not_ok, response_ok } from "../../helpers/custome-reponse.reponse";
 
 class LoginUserRouter {
     constructor(private loginUserUsecase: LoginUserUseCase){}

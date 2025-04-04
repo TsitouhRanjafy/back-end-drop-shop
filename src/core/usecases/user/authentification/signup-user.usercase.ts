@@ -1,6 +1,6 @@
-import IUser from "../../entities/type/user.type";
-import { TokenService, LoadUserRepository, SaveUserReposiroty, Hashage } from "../../../frameworks";
-import { IAuthUsecaseResponse } from "../../entities/type/type";
+import IUser from "../../../entities/type/user.type";
+import { TokenService, LoadUserRepository, SaveUserReposiroty, Hashage } from "../../../../frameworks";
+import { IAuthUsecaseResponse } from "../../../entities/type/type";
 
 
 class SignupUserUseCase {

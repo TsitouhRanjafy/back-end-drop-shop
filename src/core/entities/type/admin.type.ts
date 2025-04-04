@@ -1,6 +1,4 @@
-import { Role } from "@prisma/client";
-
-export default interface IUser { 
+export default interface IAdmin { 
     id: number; 
     firstname: string; 
     lastname: string; 
@@ -9,7 +7,5 @@ export default interface IUser {
     tel: string; 
     pays: string; 
     adress: string; 
-    role: Role; 
     code_postal: string | null; 
 }
-

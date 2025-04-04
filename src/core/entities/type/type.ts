@@ -15,8 +15,13 @@ interface IAuthUsecaseResponse {
     token: string,
 }
 
+
+type CustomHttpResponse = IHttpResponse<{ id: number,token: string }> | IHttpResponse<{message: string}>
+
+
 export {
     IHttpRequest,
     IHttpResponse,
-    IAuthUsecaseResponse
+    IAuthUsecaseResponse,
+    CustomHttpResponse
 }

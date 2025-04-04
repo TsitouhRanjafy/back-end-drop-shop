@@ -128,5 +128,4 @@ enum DeliveryStatus {
 enum Role {
     SELLER
     BUYER
-    ADMIN
 }

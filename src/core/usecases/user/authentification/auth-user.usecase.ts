@@ -1,7 +1,7 @@
-import { TokenService } from "../../../frameworks";
+import { TokenService } from "../../../../frameworks";
 import { JwtPayload } from "jsonwebtoken";
-import IUser from "../../entities/type/user.type";
-import { IAuthUsecaseResponse } from "../../entities/type/type";
+import IUser from "../../../entities/type/user.type";
+import { IAuthUsecaseResponse } from "../../../entities/type/type";
 
 
 class AuthUserUsecase {

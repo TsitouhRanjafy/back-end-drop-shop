@@ -1,14 +1,15 @@
-import express, { Application, urlencoded } from 'express';
+import express, { urlencoded } from 'express';
 import cookieParser from 'cookie-parser';
-import router from './routes';
 import routerSwaggerDocs from '../documentation/swagger.routes';
-
-const app: Application = express();
+import { app } from './setup';
+import routerAdmin from "./routes/admin.route"
+import routerUser from "./routes/user.route"
 
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(router);
+app.use(routerAdmin);
+app.use(routerUser)
 app.use(routerSwaggerDocs)
 
 
