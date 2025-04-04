@@ -6,7 +6,7 @@ import { adminLoginSchema, adminSignupSchema } from "../../helpers/admin.schema"
 import { validationResult } from "express-validator";
 import { StatusCodes } from "http-status-codes";
 
-
+    
 router.post(
     endpoints.signup_admin,
     adminSignupSchema,
