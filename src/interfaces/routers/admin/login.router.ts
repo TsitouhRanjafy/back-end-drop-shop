@@ -12,7 +12,7 @@ class LoginAdminRouter {
             const usecaseResponse: IAuthUsecaseResponse | null = await this.loginAdminUsecase.execute(admin.email,admin.password);
             if (!usecaseResponse) return response_not_ok('Invalid credentials');
     
-            res.cookie(env.token_secret_key,usecaseResponse.token,{
+            res.cookie(env().token_secret_key,usecaseResponse.token,{
                 httpOnly: true,
                 sameSite: true,
                 maxAge: 24 * (60 * (60 * 1000)) // 24h

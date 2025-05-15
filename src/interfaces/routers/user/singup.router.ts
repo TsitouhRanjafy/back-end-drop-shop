@@ -14,7 +14,7 @@ class SignupUserRouter {
             const usecaseResponse: IAuthUsecaseResponse | null = await this.signupUseCase.exec(user);
             if (!usecaseResponse) return response_not_ok('try to change email or password');
 
-            res.cookie(env.token_secret_key,usecaseResponse.token,{
+            res.cookie(env().token_secret_key,usecaseResponse.token,{
                 httpOnly: true,
                 sameSite: true,
                 maxAge: 24 * (60 * (60 * 1000)) // 24h

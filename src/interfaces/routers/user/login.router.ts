@@ -12,7 +12,7 @@ class LoginUserRouter {
             const usecaseResponse: IAuthUsecaseResponse | null = await this.loginUserUsecase.execute(user.email,user.password,user.role);
             if (!usecaseResponse) return response_not_ok('Invalid credentials');
     
-            res.cookie(env.token_secret_key,usecaseResponse.token,{
+            res.cookie(env().token_secret_key,usecaseResponse.token,{
                 httpOnly: true,
                 sameSite: true,
                 maxAge: 24 * (60 * (60 * 1000)) // 24h

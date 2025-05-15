@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(routerAdmin);
-app.use(routerUser)
-app.use(routerSwaggerDocs)
+app.use(routerUser);
+app.use(routerSwaggerDocs);
 
 
 export default app;

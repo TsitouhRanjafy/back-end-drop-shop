@@ -8,8 +8,9 @@ export default interface IUser {
     password: string; 
     tel: string; 
     pays: string; 
-    adress: string; 
+    adress: string | null; 
     role: Role; 
     code_postal: string | null; 
+    product_preference: string;
 }
 

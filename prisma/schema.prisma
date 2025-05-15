@@ -15,9 +15,10 @@ model User {
     password                String              
     tel                     String              @unique 
     pays                    String              @db.VarChar(255)
-    adress                  String              @db.VarChar(255)
+    adress                  String?             @db.VarChar(255)
     role                    Role                @default(SELLER)
     code_postal             String?             
+    product_preference      String              @db.VarChar(255)
     posts                   Post[]
     message                 Message[]
     command                 Command[]
@@ -43,7 +44,7 @@ model Message {
     id_admin                Int
     id_user                 Int
     content                 String              
-    sender_date             DateTime            @default(now())
+    sending_date            DateTime            @default(now())
     sender_id               Int         
     user                    User                @relation(fields: [id_user],references: [id])
     admin                   Admin               @relation(fields: [id_admin],references: [id])
