@@ -1,4 +1,4 @@
-import IAdmin from "../../entities/type/admin.type";
+import IAdmin from "../../entities/admin.type";
 
 interface ILoadAdminRepository {
     getAdminByEmail(email: string): Promise<IAdmin | null>;
@@ -9,6 +9,7 @@ interface ILoadAdminRepository {
 interface ISaveAdminRepository {
     signup(Admin: Omit<IAdmin,"id">): Promise<IAdmin>;
 }
+
 export {
     ILoadAdminRepository,
     ISaveAdminRepository

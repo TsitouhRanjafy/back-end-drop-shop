@@ -1,8 +1,6 @@
 import { checkSchema } from "express-validator";
 
-
-
-const adminSignupSchema = checkSchema({
+const userSignupSchema = checkSchema({
     email: {
         errorMessage: 'Invalid email',
         isEmail: true,
@@ -56,7 +54,7 @@ const adminSignupSchema = checkSchema({
         isLength: {
             options: { min: 3, max: 255 }
         },
-        isEmpty: { negated: true, bail: true },
+        optional: true,
         escape: true
     },
     code_postal: {
@@ -66,10 +64,21 @@ const adminSignupSchema = checkSchema({
         },
         escape: true,
         optional: true
+    },
+    role: {
+        errorMessage: "Invalid role",
+        isLength: {
+            options: { min: 5, max: 6 }
+        },
+        isIn: {
+            options: [['SELLER','BUYER','ADMIN']]
+        },
+        isEmpty: { negated: true }
     }
 },['body'])
 
-const adminLoginSchema = checkSchema({
+
+const userLoginSchema = checkSchema({
     email: {
         errorMessage: 'Invalid email',
         isEmail: true,
@@ -84,10 +93,17 @@ const adminLoginSchema = checkSchema({
             options: { min: 8, max: 255 }
         },
         escape: true
+    },
+    role: {
+        errorMessage: "Invalid role",
+        isEmpty: { negated: true },
+        isIn: {
+            options: [["SELLER","BUYER"]]
+        },
     }
-},['body'])
+})
 
 export {
-    adminLoginSchema,
-    adminSignupSchema
+    userLoginSchema,
+    userSignupSchema
 }

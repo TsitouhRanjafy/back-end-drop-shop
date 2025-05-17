@@ -1,7 +1,6 @@
 import { TokenService } from "../../../../frameworks";
 import { JwtPayload } from "jsonwebtoken";
-import IUser from "../../../entities/type/user.type";
-import { IAuthUsecaseResponse } from "../../../entities/type/type";
+import IUser from "../../../entities/user.type";
 
 
 class AuthUserUsecase {
@@ -9,13 +8,16 @@ class AuthUserUsecase {
         private tokenService: TokenService
     ){}
 
-    execute(token: string): IAuthUsecaseResponse | null{
+    execute(token: string): Pick<IUser,"id" | "email" | "role"> | null{
         const isVerified: JwtPayload | string | null = this.tokenService.verify(token);
+        console.log(isVerified);
+        
         if (!isVerified) return null;
-        const user: Pick<IUser,"id" | "email"> = isVerified as Pick<IUser,"id" | "email">
+        const user: Pick<IUser,"id" | "email" | "role"> = isVerified as Pick<IUser,"id" | "email" | "role">
         return {
             id: user.id,
-            token: token
+            role: user.role,
+            email: user.email
         };
     }
 }

@@ -3,7 +3,7 @@ import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { authRouter, loginRouter, signupRouter } from "../setup";
 import endpoints from "../endpoints";
 import { validationResult } from "express-validator";
-import { userLoginSchema, userSignupSchema } from "../../helpers/user.schema";
+import { userLoginSchema, userSignupSchema } from "../../schema/user.schema";
 import { router } from "../setup";
 
 

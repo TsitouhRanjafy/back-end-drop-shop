@@ -1,5 +1,5 @@
 import { Role } from "@prisma/client";
-import IUser from "../../entities/type/user.type";
+import IUser from "../../entities/user.type";
 
 interface ILoadUserRepository {
     getUserByEmailAndRole(email: string, role: Role): Promise<IUser | null> 

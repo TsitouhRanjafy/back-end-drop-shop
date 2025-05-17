@@ -1,5 +1,5 @@
-import { IAdmin, ILoadAdminRepository } from "../../../../core";
-import prisma from "../../prismaClient";
+import { IAdmin, ILoadAdminRepository } from "../../../core";
+import prisma from "../prismaClient";
 
 class LoadAdminRepository implements ILoadAdminRepository {
 

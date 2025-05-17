@@ -1,5 +1,5 @@
-import { ISaveUserRepository, IUser } from "../../../../core";
-import prisma from "../../prismaClient";
+import { ISaveUserRepository, IUser } from "../../../core";
+import prisma from "../prismaClient";
 
 class SaveUserReposiroty implements ISaveUserRepository {
 

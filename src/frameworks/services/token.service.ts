@@ -1,10 +1,11 @@
 import { IUser } from "../../core";
+import IAdmin from "../../core/entities/admin.type";
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import { env } from "../../interfaces";
 
 class TokenService {
 
-    generer(user: Pick<IUser,"id" | "email">): string {
+    generer(user: Pick<IUser,"id" | "email" | "role"> | Pick<IAdmin,"id" | "email">): string {
         const token = jwt.sign(
             user,
             env().jwt_secret_key,

@@ -1,8 +1,8 @@
-import { IAdmin, ISaveAdminRepository} from "../../../../core";
-import prisma from "../../prismaClient";
+import IAdmin from "../../../core/entities/admin.type";
+import { ISaveAdminRepository } from "../../../core/repositories/admin/admin-repository.interface";
+import prisma from "../prismaClient";
 
 class SaveAdminReposiroty implements ISaveAdminRepository {
-
     async signup(Admin: Omit<IAdmin,"id">): Promise<IAdmin> {
         try {
             const newAdmin: IAdmin = await prisma.admin.create({

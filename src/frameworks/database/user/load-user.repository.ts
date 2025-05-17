@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
-import { ILoadUserRepository, IUser } from "../../../../core";
-import prisma from "../../prismaClient";
+import { IUser, ILoadUserRepository } from "../../../core";
+import prisma from "../prismaClient";
 
 class LoadUserRepository implements ILoadUserRepository {
 
