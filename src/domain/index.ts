@@ -9,6 +9,7 @@ import { IHttpResponse } from "./http/http.interface";
 import AuthUserUsecase from "./usecases/user/authentification/auth-user.usecase";
 import SignupUserUseCase from "./usecases/user/authentification/signup-user.usercase";
 import LoginUserUseCase from "./usecases/user/authentification/login-user.usecase";
+import LoadAllUserUsecase from "./usecases/user/load/load-all-user.usecase";
 
 
 export {
@@ -24,5 +25,6 @@ export {
 
     AuthUserUsecase,
     LoginUserUseCase,
-    SignupUserUseCase
+    SignupUserUseCase,
+    LoadAllUserUsecase
 }

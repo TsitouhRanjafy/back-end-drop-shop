@@ -1,22 +1,17 @@
 import { Router, Request, Response } from "express";
-import { validationResult } from "express-validator";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
-import SignupUserController from "../../../controllers/user/singup-user.controller";
+import SignupUserController from "../../../controllers/user/auth/singup-user.controller";
 import { userSignupSchema } from "../../../../schema/user.schema";
 import endpoints from "../../../../config/endpoints";
+import { validateRequest } from "../../../middleware/validate-request.middleware";
 
 export const signupUserRouter = (router: Router, signupUserRouter: SignupUserController) => {
     router.post(
         endpoints.signup,
         userSignupSchema,
+        validateRequest,
         async (req: Request, res: Response) => {
-            const resultValidation = validationResult(req);
-
-            if (!resultValidation.isEmpty()){
-                res.status(StatusCodes.BAD_REQUEST).send({ message: resultValidation.array()[0].msg as string})
-                return;
-            }
             
             try {
                 const response = await signupUserRouter.handler(req, res);

@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
-import env from "../../../config/env";
-import { IHttpResponse, IUser, LoginUserUseCase } from "../../../../domain";
+import env from "../../../../config/env";
+import { IHttpResponse, IUser, LoginUserUseCase } from "../../../../../domain";
+import { ControllerError } from "../../../../error/controllers.error";
 
 
 class LoginUserController {
@@ -28,8 +29,7 @@ class LoginUserController {
                 statusCode: StatusCodes.OK
             };
         } catch (error) {
-            console.error("Erreur lors de `LoginRouter `",error);
-            throw error;
+            throw new ControllerError("LoginUserController", error);
         }
     }
 }

@@ -1,7 +1,8 @@
 import { Request } from "express"
 import { StatusCodes } from "http-status-codes";
 
-import { AuthUserUsecase, IHttpResponse, IUser } from "../../../../domain";
+import { AuthUserUsecase, IHttpResponse, IUser } from "../../../../../domain";
+import { ControllerError } from "../../../../error/controllers.error";
 
 
 class AuthUserController {
@@ -18,8 +19,7 @@ class AuthUserController {
                 statusCode: StatusCodes.OK
             }
         } catch (error) {
-            console.error("Erreurs lors de `AuthUserRouter`",error);
-            throw error;
+            throw new ControllerError("AuthUserController", error);
         }
     }
 }

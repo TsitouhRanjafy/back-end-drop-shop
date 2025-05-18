@@ -11,7 +11,7 @@ class SignupUserUseCase {
     ){}
 
     async exec(user: Omit<IUser,"id">): Promise<{id: number,token: string} | null>{
-        let isExistUser: IUser | null = await this.loadUserRepository.getUserByEmail(user.email);
+        let isExistUser: IUser | null = await this.loadUserRepository.getUserByEmail(user.email,user.role);
         if(isExistUser && isExistUser.role == user.role) return null; 
         isExistUser = await this.loadUserRepository.getUserByTel(user.tel);
         if(isExistUser) return null; 

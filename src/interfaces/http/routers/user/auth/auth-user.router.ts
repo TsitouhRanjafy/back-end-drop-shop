@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
-import AuthUserController from "../../../controllers/user/auth-user.controller";
+import AuthUserController from "../../../controllers/user/auth/auth-user.controller";
 import endpoints from "../../../../config/endpoints";
 
 
