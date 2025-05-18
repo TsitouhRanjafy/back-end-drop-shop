@@ -1,15 +1,11 @@
-import SignupRouter from "./routers/user/singup.router";
-import app from "./config/app";
+import SignupRouter from "./http/controllers/user/singup-user.controller";
 import env from "./config/env";
-import LoginRouter from "./routers/user/login.router";
+import LoginRouter from "./http/controllers/user/login-user.controller";
 import { userLoginSchema, userSignupSchema } from "./schema/user.schema";
-import AuthUserRouter from "./routers/user/auth.router";
 
 export {
     SignupRouter,
     LoginRouter,
-    AuthUserRouter,
-    app,
     env,
     userLoginSchema,
     userSignupSchema
