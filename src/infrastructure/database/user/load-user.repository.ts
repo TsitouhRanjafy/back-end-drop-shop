@@ -20,8 +20,6 @@ class LoadUserRepository implements ILoadUserRepository {
     async getAllUser(role: Role): Promise<IUser[]> {
         try {
             const users: IUser[] = await prisma.user.findMany({ where: { role: role }})
-            console.log(users);
-            
             return users;
         } catch (error) {
             throw new DataBaseAccessError("getAllUser",error);
@@ -54,9 +52,6 @@ class LoadUserRepository implements ILoadUserRepository {
             throw new DataBaseAccessError("getUserById",error);
         }
     }
-
-
-
 }
 
 export default LoadUserRepository;

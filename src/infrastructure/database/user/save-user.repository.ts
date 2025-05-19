@@ -7,7 +7,7 @@ class SaveUserReposiroty implements ISaveUserRepository {
     async sinup(user: Omit<IUser,"id">): Promise<IUser> {
         try {
             const newUser: IUser = await prisma.user.create({
-                data: user 
+                data: user
             })
             return newUser;
         } catch (error) {

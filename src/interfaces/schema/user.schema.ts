@@ -1,22 +1,6 @@
 import { checkSchema } from "express-validator";
 
 const userSignupSchema = checkSchema({
-    email: {
-        errorMessage: 'Invalid email',
-        isEmail: true,
-        isEmpty: { negated: true,bail: true },
-        escape: true,
-        trim: true
-    },
-    password: {
-        errorMessage: "Invalid password",
-        isStrongPassword: true,
-        isEmpty: { negated: true,bail: true },
-        isLength: {
-            options: { min: 8, max: 255 }
-        },
-        escape: true
-    },
     firstname: {
         errorMessage: "Invalid firstname",
         isLength: {
@@ -31,6 +15,22 @@ const userSignupSchema = checkSchema({
             options: { min: 3, max: 255 }
         },
         isEmpty: { negated: true, bail: true },
+        escape: true
+    },
+    email: {
+        errorMessage: 'Invalid email',
+        isEmail: true,
+        isEmpty: { negated: true,bail: true },
+        escape: true,
+        trim: true
+    },
+    password: {
+        errorMessage: "Invalid password",
+        isStrongPassword: true,
+        isEmpty: { negated: true,bail: true },
+        isLength: {
+            options: { min: 8, max: 255 }
+        },
         escape: true
     },
     tel: {
@@ -49,22 +49,6 @@ const userSignupSchema = checkSchema({
         isEmpty: { negated: true, bail: true },
         escape: true
     },
-    adress: {
-        errorMessage: "Invalid adress",
-        isLength: {
-            options: { min: 3, max: 255 }
-        },
-        optional: true,
-        escape: true
-    },
-    code_postal: {
-        errorMessage: "Invalid code postal",
-        isLength: {
-            options: { min: 3, max: 255 }
-        },
-        escape: true,
-        optional: true
-    },
     role: {
         errorMessage: "Invalid role",
         isLength: {
@@ -74,7 +58,41 @@ const userSignupSchema = checkSchema({
             options: [['SELLER','BUYER','ADMIN']]
         },
         isEmpty: { negated: true }
-    }
+    },
+    product_preference: {
+        errorMessage: "Invalid product_preference",
+        isString: true,
+        optional: true,
+        escape: true,
+    },
+    adress: {
+        errorMessage: "Invalid adress",
+        isLength: {
+            options: { min: 3, max: 255 }
+        },
+        optional: true,
+        escape: true
+    },
+    profile_url: {
+        errorMessage: "Invalid profile_url",
+        isURL: {
+            options: {
+                require_protocol: true,
+                protocols: ["http","https"]
+            }
+        },
+        optional: true,
+        escape: true
+
+    },
+    code_postal: {
+        errorMessage: "Invalid code postal",
+        isLength: {
+            options: { min: 3, max: 255 }
+        },
+        escape: true,
+        optional: true
+    },
 },['body'])
 
 
