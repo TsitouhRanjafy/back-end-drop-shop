@@ -15,6 +15,19 @@ const roleSchemaParams = checkSchema({
     }
 },['params'])
 
+
+const countPostSchemaParams = checkSchema({
+    count: {
+        isInt: {
+            errorMessage: "count param must be a integer",
+            options: {min: 1}
+        },
+        toInt: true,
+        escape: true,
+    }
+},["params"])
+
 export {
-    roleSchemaParams
+    roleSchemaParams,
+    countPostSchemaParams,
 }

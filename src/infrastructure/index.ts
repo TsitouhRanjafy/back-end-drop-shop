@@ -2,6 +2,8 @@ import SaveUserReposiroty from "./database/user/save-user.repository";
 import LoadUserRepository from "./database/user/load-user.repository";
 import TokenService from "./services/token.service";
 import Hashage from "./services/hashage.service";
+import AddPostRepository from "./database/post/add-post.repository";
+import LoadPostRepository from "./database/post/load-post.repository";
 // import LoadAdminRepository from "./database/admin/load-admin.repository";
 // import SaveAdminReposiroty from "./database/admin/save-admin.repository";
 
@@ -13,4 +15,6 @@ export {
     // SaveAdminReposiroty,
     TokenService,
     Hashage,
+    AddPostRepository,
+    LoadPostRepository
 }
