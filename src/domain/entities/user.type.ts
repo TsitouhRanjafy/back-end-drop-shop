@@ -7,6 +7,7 @@ export default interface IUser {
     email: string; 
     password: string; 
     tel: string; 
+    region: string;
     pays: string; 
     role: Role; 
     product_preference: string | null;

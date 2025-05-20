@@ -5,7 +5,8 @@ export default interface IPost {
     type: TypePost;
     description: string;
     id_user: number;
-    create_at: Date;
+    create_at: Date; 
+    reaction: number;
     unit_price: number | null;               
     stock: number | null;
     image_url: string | null;

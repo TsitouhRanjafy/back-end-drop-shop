@@ -15,6 +15,7 @@ model User {
     email                   String              @unique 
     password                String              
     tel                     String              @unique 
+    region                  String              @db.VarChar(255) @default("unknow")
     pays                    String              @db.VarChar(255)
     role                    Role                @default(SELLER)
     product_preference      String?             @db.VarChar(255)
@@ -61,6 +62,7 @@ model Post {
     create_at               DateTime            @default(now())
     image_url               String?  
     id_user                 Int                 
+    reaction                Int                 @default(0)
     user                    User                @relation(fields: [id_user],references: [id])
     command                 Command[]
     delete_post             DeletedPost[]
