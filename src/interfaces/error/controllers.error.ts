@@ -3,8 +3,8 @@ import { DataBaseAccessError } from "../../infrastructure/error/repositories.err
 export class ControllerError extends Error {
     originalError: unknown;
 
-    constructor(functionName: string, originalError?: unknown ){
-        super(`Controller error in:${functionName}`);
+    constructor(className: string, originalError?: unknown ){
+        super(`Controller error in:${className}`);
         this.name = "ControllerError";
         this.originalError = originalError
 

@@ -5,11 +5,14 @@ import ILoadUserRepository from "./repositories/user/load-user-repository.interf
 import { ITokenService } from "./services/tokenSerivce.interface";
 import { IHashageService } from "./services/hashageService.interface";
 import { IHttpResponse } from "./http/http.interface";
+import IPost from "./entities/post.type";
+import { ISavePostRepository } from "./repositories/post/save-post-repository.interface";
 
 import AuthUserUsecase from "./usecases/user/authentification/auth-user.usecase";
 import SignupUserUseCase from "./usecases/user/authentification/signup-user.usercase";
 import LoginUserUseCase from "./usecases/user/authentification/login-user.usecase";
 import LoadAllUserUsecase from "./usecases/user/load/load-all-user.usecase";
+import AddNewPostUsecase from "./usecases/post/save/add-new-post.usecase";
 
 
 export {
@@ -21,10 +24,13 @@ export {
     ITokenService,
     IHashageService,
     IHttpResponse,
+    IPost,
+    ISavePostRepository,
     
 
     AuthUserUsecase,
     LoginUserUseCase,
     SignupUserUseCase,
-    LoadAllUserUsecase
+    LoadAllUserUsecase,
+    AddNewPostUsecase
 }

@@ -3,6 +3,7 @@ const endpoints = {
     login: '/login',
     auth: '/auth',
     getAllUser: '/users/:role',
+    addNewPost: '/new/post/:id_user',
     docs:'/api-docs',
 
     signup_admin: '/admin/signup',

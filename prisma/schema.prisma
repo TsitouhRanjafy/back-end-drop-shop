@@ -53,12 +53,12 @@ model Message {
 
 model Post {
     id                      Int                 @id @default(autoincrement())
-    type                    Type                @default(ARTICLE)
+    type                    TypePost            @default(ARTICLE)
     description             String
-    unit_price              Float               
-    stock                   Float
+    unit_price              Float?               
+    stock                   Int?
     create_at               DateTime            @default(now())
-    image_url               String  
+    image_url               String?  
     id_user                 Int                 
     user                    User                @relation(fields: [id_user],references: [id])
     command                 Command[]
@@ -76,7 +76,7 @@ model Comment {
     user                    User                @relation(fields: [id_user],references: [id])
 }
 
-enum Type {
+enum TypePost {
     ARTICLE
     SIMPLE_POST
 }

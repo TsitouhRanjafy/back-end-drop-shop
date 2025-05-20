@@ -42,10 +42,10 @@ class LoadUserRepository implements ILoadUserRepository {
         }
     }
 
-    async getUserById(id: number): Promise<IUser | null> {
+    async getUserById(id: number,role: Role): Promise<IUser | null> {
         try {
             const user: IUser | null = await prisma.user.findUnique({
-                where: { id: id }
+                where: { id, role }
             })
             return user;
         } catch (error) {
