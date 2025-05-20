@@ -4,7 +4,7 @@ import prisma from "../prismaClient";
 
 export default class AddPostRepository implements ISavePostRepository {
 
-    async savePost(newPost: Omit<IPost,"id" | "create_at" | "reaction">): Promise<IPost | null> {
+    async savePost(newPost: Omit<IPost,"id" | "create_at">): Promise<IPost | null> {
         try {
             const savedPost: IPost | null = await prisma.post.create({
                 data: newPost

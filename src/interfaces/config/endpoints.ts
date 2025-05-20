@@ -5,6 +5,7 @@ const endpoints = {
     getAllUser: '/users/:role',
     addNewPost: '/new/post/:id_user',
     loadPost: "/posts/:count",
+    likInlikePost: "/post/reaction",
     docs:'/api-docs',
 
     signup_admin: '/admin/signup',

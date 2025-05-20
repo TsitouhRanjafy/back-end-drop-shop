@@ -1,8 +1,8 @@
 class DataBaseAccessError extends Error {
     originalError: unknown;
 
-    constructor(className: string, originalError?: unknown){
-        super(`Repositorie error in: ${className}`)
+    constructor(functionName: string, originalError?: unknown){
+        super(`Repositorie error in: ${functionName}`)
         this.name = "DataBaseAccessError";
         this.originalError = originalError;
 

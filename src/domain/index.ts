@@ -8,6 +8,10 @@ import { IHttpResponse } from "./http/http.interface";
 import IPost from "./entities/post.type";
 import { ISavePostRepository } from "./repositories/post/save-post-repository.interface";
 import { ILoadPostRepository } from "./repositories/post/load-post-repository.interface";
+import IReaction from "./entities/reaction.type";
+import { ILoadReactionRepository } from "./repositories/reaction/load-reaction-repository.interface";
+import { ISaveReactionRepository } from "./repositories/reaction/save-reaction-repository.interface";
+import { IActionReactionRespository } from "./repositories/reaction/action-reaction-repository.interface";
 
 import AuthUserUsecase from "./usecases/user/authentification/auth-user.usecase";
 import SignupUserUseCase from "./usecases/user/authentification/signup-user.usercase";
@@ -15,6 +19,7 @@ import LoginUserUseCase from "./usecases/user/authentification/login-user.usecas
 import LoadAllUserUsecase from "./usecases/user/load/load-all-user.usecase";
 import AddNewPostUsecase from "./usecases/post/save/add-new-post.usecase";
 import LoadPostUsecase from "./usecases/post/load/load-post.usecase";
+import LikeInlikePostUsecase from "./usecases/post/action/like-Inlike-post.usecase";
 
 
 export {
@@ -29,6 +34,10 @@ export {
     IPost,
     ISavePostRepository,
     ILoadPostRepository,
+    IReaction,
+    ILoadReactionRepository,
+    ISaveReactionRepository,
+    IActionReactionRespository,
     
 
     AuthUserUsecase,
@@ -36,5 +45,6 @@ export {
     SignupUserUseCase,
     LoadAllUserUsecase,
     AddNewPostUsecase,
-    LoadPostUsecase
+    LoadPostUsecase,
+    LikeInlikePostUsecase
 }

@@ -22,6 +22,7 @@ model User {
     profile_url             String?
     adress                  String?             @db.VarChar(255)
     code_postal             String?             
+    reaction                Reaction[]
     posts                   Post[]
     message                 Message[]
     command                 Command[]
@@ -62,11 +63,20 @@ model Post {
     create_at               DateTime            @default(now())
     image_url               String?  
     id_user                 Int                 
-    reaction                Int                 @default(0)
     user                    User                @relation(fields: [id_user],references: [id])
+    reaction                Reaction[]
     command                 Command[]
     delete_post             DeletedPost[]
     comment                 Comment[]
+}
+
+model Reaction {
+    id                      Int                 @id @default(autoincrement())
+    id_post                 Int
+    id_user                 Int
+    role                    Role                   
+    post                    Post                @relation(fields: [id_post],references: [id])
+    user                    User                @relation(fields: [id_user],references: [id])
 }
 
 model Comment {
