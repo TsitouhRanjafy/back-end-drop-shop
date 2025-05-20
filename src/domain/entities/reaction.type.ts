@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
 
-export default interface IReaction {
+export interface IReaction {
     id: number,
     id_post: number,
     role: Role,

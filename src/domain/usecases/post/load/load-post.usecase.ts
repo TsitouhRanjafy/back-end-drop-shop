@@ -1,6 +1,6 @@
 
 import { LoadPostRepository } from "../../../../infrastructure";
-import IPost from "../../../entities/post.type";
+import { IPost } from "../../../entities/post.type";
 
 export default class LoadPostUsecase {
     constructor(

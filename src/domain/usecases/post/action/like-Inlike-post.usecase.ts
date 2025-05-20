@@ -1,6 +1,6 @@
 import { ActionReactionRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveReactionRepository } from "../../../../infrastructure";
-import IPost from "../../../entities/post.type";
-import IReaction from "../../../entities/reaction.type";
+import { IPost } from "../../../entities/post.type";
+import { IReaction } from "../../../entities/reaction.type";
 import IUser from "../../../entities/user.type";
 
 

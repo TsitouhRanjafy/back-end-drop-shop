@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { AddNewPostUsecase, AuthUserUsecase, LikeInlikePostUsecase, LoadAllUserUsecase, LoadPostUsecase, LoginUserUseCase, SignupUserUseCase } from "../../../domain";
-import { ActionReactionRepository, AddPostRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveReactionRepository, SaveUserReposiroty, TokenService } from "../../../infrastructure";
+import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllUserUsecase, LoadPostUsecase, LoginUserUseCase, SignupUserUseCase } from "../../../domain";
+import { ActionReactionRepository, AddPostRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveCommentRepository, SaveReactionRepository, SaveUserReposiroty, TokenService } from "../../../infrastructure";
 
 import AuthUserController from "../controllers/user/auth/auth-user.controller";
 import { authRouter } from "./user/auth/auth-user.router";
@@ -18,6 +18,8 @@ import LoadPostController from "../controllers/post/load/load-post.controller";
 import { loadPostRouter } from "./post/load/load-post.router";
 import LikeInlikePostController from "../controllers/post/action/like-inlike-post.controller";
 import { likeInLikePostRouter } from "./post/action/like-inlike-post.router";
+import CommentPostController from "../controllers/post/action/comment-post.controller";
+import { commentPostRouter } from "./post/action/comment-post.router";
 
 const router = Router();
 
@@ -31,6 +33,8 @@ const loadPostRepository = new LoadPostRepository();
 const actionReactionReapository = new ActionReactionRepository();
 const saveReactionRepository = new SaveReactionRepository();
 const loadReactionRepository = new LoadReactionRepository();
+const saveCommentRepository = new SaveCommentRepository();
+// const loadCommentRepository = new LoadCommentRepository();
 
 const authUserUsecase = new AuthUserUsecase(tokenService);
 const loginUserUsecase = new LoginUserUseCase(tokenService, hashageService, loadUserRepository);
@@ -39,6 +43,7 @@ const loadAllUserUsecase = new LoadAllUserUsecase(loadUserRepository);
 const addNewPostUsecase = new AddNewPostUsecase(addPostRepository,loadUserRepository);
 const loadPostUsecase = new LoadPostUsecase(loadPostRepository);
 const likeInlikePostUsecase = new LikeInlikePostUsecase(saveReactionRepository,loadReactionRepository,actionReactionReapository,loadUserRepository,loadPostRepository);
+const commentPostUsecase = new CommentPostUsecase(saveCommentRepository);
 
 const authUserController = new AuthUserController(authUserUsecase);
 const loginUserController = new LoginUserController(loginUserUsecase);
@@ -47,6 +52,7 @@ const loadAllUserController = new LoadAllUserController(loadAllUserUsecase);
 const addNewPostController = new AddNewPostController(addNewPostUsecase);
 const loadPostController = new LoadPostController(loadPostUsecase);
 const likeInlikePostController = new LikeInlikePostController(likeInlikePostUsecase);
+const commentPostController = new CommentPostController(commentPostUsecase);
 
 authRouter(router, authUserController);
 loginUserRouter(router, loginUserController);
@@ -54,6 +60,7 @@ signupUserRouter(router, signupUserController);
 loadAllUserRouter(router,loadAllUserController);
 addNewPostRouter(router,addNewPostController);
 loadPostRouter(router,loadPostController);
-likeInLikePostRouter(router,likeInlikePostController)
+likeInLikePostRouter(router,likeInlikePostController);
+commentPostRouter(router,commentPostController);
 
 export default router;

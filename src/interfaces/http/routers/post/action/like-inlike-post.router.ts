@@ -8,7 +8,7 @@ import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
 export const likeInLikePostRouter = (router: Router, likeInlikePostController: LikeInlikePostController) => {
     router.post(
-        endpoints.likInlikePost,
+        endpoints.likeInlikePost,
         reactionSchemaBody,
         validateRequest,
         async (req: Request,res: Response) => {

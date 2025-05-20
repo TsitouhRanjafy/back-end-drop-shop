@@ -1,6 +1,6 @@
 import { TypePost } from "@prisma/client"
 
-export default interface IPost {
+export interface IPost {
     id: number,
     type: TypePost;
     description: string;

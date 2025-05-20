@@ -19,8 +19,13 @@ export default class LoadPostRepository implements ILoadPostRepository {
                 skip,
                 take, 
                 include: {
-                    comment: true
-                } 
+                    _count: {
+                        select: {
+                            comment: true,
+                            reaction: true
+                        }
+                    }
+                }
             });
             return posts;
         } catch (error) {
