@@ -73,8 +73,7 @@ model Post {
 model Reaction {
     id                      Int                 @id @default(autoincrement())
     id_post                 Int
-    id_user                 Int
-    role                    Role                   
+    id_user                 Int                  
     post                    Post                @relation(fields: [id_post],references: [id])
     user                    User                @relation(fields: [id_user],references: [id])
 }

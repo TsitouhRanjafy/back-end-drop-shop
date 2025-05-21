@@ -17,7 +17,7 @@ class LoadUserRepository implements ILoadUserRepository {
         }
     }
 
-    async getAllUser(role: Role): Promise<IUser[]> {
+    async getAllUserByRole(role: Role): Promise<IUser[]> {
         try {
             const users: IUser[] = await prisma.user.findMany({ where: { role: role }})
             return users;
@@ -42,10 +42,10 @@ class LoadUserRepository implements ILoadUserRepository {
         }
     }
 
-    async getUserById(id: number,role: Role): Promise<IUser | null> {
+    async getUserById(id: number): Promise<IUser | null> {
         try {
             const user: IUser | null = await prisma.user.findUnique({
-                where: { id, role }
+                where: { id }
             })
             return user;
         } catch (error) {

@@ -10,8 +10,11 @@ export default class LikeInlikePostController {
     ){}
 
     async handle(req: Request): Promise<IHttpResponse<{message: string}>> {
-        const reaction: Omit<IReaction,"id"> = req.body as Omit<IReaction,"id">;
-
+        const { id_post,userId } = req.query;
+        const reaction: Omit<IReaction,"id"> = { 
+            id_post: Number(id_post),
+            id_user: Number(userId) 
+        }
         try {
             const response: boolean = await this.likeInlikePostUsecase.exec(reaction);
             return {

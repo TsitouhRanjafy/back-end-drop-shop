@@ -21,14 +21,6 @@ export const commentSchema = checkSchema({
         },
         toInt: true
     },
-    id_user: {
-        in: ["query"],
-        isInt: {
-            errorMessage: "id_user must be a integer",
-            options: {min: 1 }
-        },
-        toInt: true
-    },
     date: {
         in: ["body"],
         isISO8601: {

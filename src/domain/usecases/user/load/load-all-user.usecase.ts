@@ -8,7 +8,7 @@ export default class LoadAllUserUsecase {
     ){}
 
     async exec(role: Required<Role>) {
-        const user: IUser[] = await this.loadUserRepositorie.getAllUser(role);
+        const user: IUser[] = await this.loadUserRepositorie.getAllUserByRole(role);
         return user;
     }
 }

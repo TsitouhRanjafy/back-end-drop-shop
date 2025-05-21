@@ -7,6 +7,7 @@ import { validateRequest } from "../../../middleware/validate-request.middleware
 import { IHttpResponse, IPost } from "../../../../../domain";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
+// admin
 export const loadPostRouter = (router: Router, loadPostController: LoadPostController) => {
     router.get(
         endpoints.loadPost,

@@ -7,7 +7,7 @@ export default class SaveReactionRepository implements ISaveReactionRepository {
     async addReaction(reaction: Omit<IReaction, "id">): Promise<void> {
         try {
             await prisma.reaction.create({
-                data: reaction
+                data: reaction  
             })
         } catch (error) {
             throw new DataBaseAccessError("addOrDeleteReaction",error);

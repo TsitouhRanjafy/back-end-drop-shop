@@ -5,10 +5,10 @@ import { DataBaseAccessError } from "../../error/repositories.error";
 export default class LoadReactionRepository implements ILoadReactionRepository {
 
     async getReactionByReaction(reaction: Omit<IReaction, "id">): Promise<IReaction | null> {
-        const {id_post,id_user,role} = reaction;
+        const {id_post,id_user} = reaction;
         try {
             const reaction: IReaction | null  = await prisma.reaction.findFirst({
-                where: { id_post,id_user,role }
+                where: { id_post,id_user }
             })
             return reaction;
         } catch (error) {

@@ -8,7 +8,7 @@ export default class AddNewPostUsecase {
     ){}
 
     async exec(newPost: Omit<IPost,"id" | "create_at" | "reaction">): Promise<IPost | null> {
-        const isUserExist = await this.loadUserRepository.getUserById(newPost.id_user,"SELLER");
+        const isUserExist = await this.loadUserRepository.getUserById(newPost.id_user);
         if (!isUserExist) return null;
 
         if (newPost.type == "ARTICLE") {

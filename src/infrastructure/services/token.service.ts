@@ -1,6 +1,6 @@
-import jwt, { JwtPayload } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 import { env } from "../../interfaces";
-import { ITokenService, IUser } from "../../domain";
+import { ITokenDecoded, ITokenService, IUser } from "../../domain";
 
 class TokenService implements ITokenService {
 
@@ -15,9 +15,9 @@ class TokenService implements ITokenService {
         return token;
     }
 
-    verify(token: string): JwtPayload | string | null{
+    verify(token: string): ITokenDecoded | null{
         try {
-            const decode: JwtPayload | string = jwt.verify(token,env.jwt_secret_key);
+            const decode: ITokenDecoded = jwt.verify(token,env.jwt_secret_key) as ITokenDecoded;
             return decode;
         } catch (error) {
             if (error instanceof jwt.JsonWebTokenError) return null;

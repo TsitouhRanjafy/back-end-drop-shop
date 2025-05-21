@@ -11,12 +11,12 @@ export default class CommentPostController {
     ){}
 
     async hanlde(req: Request): Promise<IHttpResponse<IComment | {message: string}>>{
-        const { id_post,id_user } = req.query;
+        const { id_post,userId } = req.query;
         const body: {content: string} = req.body as {content: string};
         const comment:Omit<IComment,"id" | "date"> = {
             content: body.content,
             id_post: Number(id_post),
-            id_user: Number(id_user)
+            id_user: Number(userId)
         }
         try {
             const newComment: IComment | null = await this.commentPostUsecase.exec(comment);

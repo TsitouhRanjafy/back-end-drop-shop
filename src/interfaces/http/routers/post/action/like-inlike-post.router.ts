@@ -5,10 +5,12 @@ import endpoints from "../../../../config/endpoints";
 import { reactionSchemaBody } from "../../../../schema/query.schema";
 import { validateRequest } from "../../../middleware/validate-request.middleware";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
+import { authMiddlware } from "../../../middleware/auth-user.middleware";
 
 export const likeInLikePostRouter = (router: Router, likeInlikePostController: LikeInlikePostController) => {
     router.post(
         endpoints.likeInlikePost,
+        authMiddlware,
         reactionSchemaBody,
         validateRequest,
         async (req: Request,res: Response) => {

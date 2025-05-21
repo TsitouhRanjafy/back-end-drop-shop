@@ -6,11 +6,13 @@ import endpoints from "../../../../config/endpoints"
 import newPostSchema from "../../../../schema/newpost.schema"
 import { validateRequest } from "../../../middleware/validate-request.middleware"
 import { IHttpResponse, IPost } from "../../../../../domain"
+import { authMiddlware } from "../../../middleware/auth-user.middleware"
 
 
 export const addNewPostRouter = (router: Router,addNewPostController: AddNewPostController) => {
     router.post(
         endpoints.addNewPost,
+        authMiddlware,
         newPostSchema,
         validateRequest,
         async (req: Request, res: Response) => {

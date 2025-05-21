@@ -1,6 +1,4 @@
-import { Role } from "@prisma/client";
-
 export interface IActionReactionRespository {
-    deleteReactionByReactionId(reactionId: number,role: Role): Promise<void>;
+    deleteReactionByReactionId(reactionId: number): Promise<void>;
 }
 

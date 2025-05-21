@@ -6,7 +6,7 @@ interface ILoadUserRepository {
     getUserByEmail(email: string,role: Role): Promise<IUser | null>;
     getUserByTel(tel: string,role: Role): Promise<IUser | null>;
     getUserById(id: number,role: Role): Promise<IUser | null>;
-    getAllUser(role: Role): Promise<IUser[] | null>;
+    getAllUserByRole(role: Role): Promise<IUser[] | null>;
 }
 
 export default ILoadUserRepository;

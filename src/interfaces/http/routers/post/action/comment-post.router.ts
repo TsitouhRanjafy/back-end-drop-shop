@@ -5,10 +5,12 @@ import CommentPostController from "../../../controllers/post/action/comment-post
 import endpoints from "../../../../config/endpoints";
 import { commentSchema } from "../../../../schema/comment.schema";
 import { validateRequest } from "../../../middleware/validate-request.middleware";
+import { authMiddlware } from "../../../middleware/auth-user.middleware";
 
 export const commentPostRouter = (router: Router,commentPostController: CommentPostController) => {
     router.post(
         endpoints.commentPost,
+        authMiddlware,
         commentSchema,
         validateRequest,
         async (req: Request, res: Response) => {
