@@ -1,4 +1,4 @@
-import { IPost } from "../../entities/post.type";
+import { IPost } from "../../entities/post.interface";
 
 
 export interface ISavePostRepository {

@@ -1,4 +1,4 @@
-import { IPost } from "../../entities/post.type";
+import { IPost } from "../../entities/post.interface";
 
 export interface ILoadPostRepository {
     getAllPost(skip: number,take: number): Promise<IPost[] | null>;

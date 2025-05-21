@@ -1,11 +1,12 @@
-import IUser from "./entities/user.type";
+import IUser from "./entities/user.interface";
 import { ITokenService } from "./services/tokenSerivce.interface";
 import { IHashageService } from "./services/hashageService.interface";
 import { IHttpResponse } from "./http/http.interface";
 
-import { IPost } from "./entities/post.type";
-import { IReaction } from "./entities/reaction.type";
-import { IComment } from "./entities/comment.type";
+import { IPost } from "./entities/post.interface";
+import { IReaction } from "./entities/reaction.interface";
+import { IComment } from "./entities/comment.interface";
+import { ITokenDecoded } from "./entities/custom.interface";
 
 // import { ILoadAdminRepository, ISaveAdminRepository } from "./repositories/admin/admin-repository.interface";
 import ISaveUserRepository from "./repositories/user/save-user-repository.interface";
@@ -38,6 +39,7 @@ export {
     IPost,
     IReaction,
     IComment,
+    ITokenDecoded,
 
     ILoadUserRepository,
     ILoadPostRepository,

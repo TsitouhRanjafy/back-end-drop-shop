@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
 import { LoadUserRepository } from "../../../../infrastructure";
-import IUser from "../../../entities/user.type";
+import IUser from "../../../entities/user.interface";
 
 export default class LoadAllUserUsecase {
     constructor(

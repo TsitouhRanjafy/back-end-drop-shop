@@ -1,5 +1,5 @@
 import { SaveCommentRepository } from "../../../../infrastructure";
-import { IComment } from "../../../entities/comment.type";
+import { IComment } from "../../../entities/comment.interface";
 
 export default class CommentPostUsecase {
     constructor(

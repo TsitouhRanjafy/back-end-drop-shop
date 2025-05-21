@@ -1,5 +1,5 @@
 import { Role } from "@prisma/client";
-import { IReaction } from "../../entities/reaction.type";
+import { IReaction } from "../../entities/reaction.interface";
 
 
 export interface ILoadReactionRepository {

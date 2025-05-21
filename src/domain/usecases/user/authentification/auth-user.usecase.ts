@@ -1,6 +1,6 @@
 import { TokenService } from "../../../../infrastructure";
 import { JwtPayload } from "jsonwebtoken";
-import IUser from "../../../entities/user.type";
+import IUser from "../../../entities/user.interface";
 
 
 class AuthUserUsecase {

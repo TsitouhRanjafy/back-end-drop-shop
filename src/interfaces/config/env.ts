@@ -1,4 +1,4 @@
-const env = () => {
+const config = () => {
     if (!process.env.PORT) throw new Error("PORT not defined in environnement");
     if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL not defined in environnement");
     if (!process.env.JWT_KEY_SECRET) throw new Error("JWT_KEY_SECRET not defined in environnement");
@@ -14,5 +14,7 @@ const env = () => {
         cors_origin2: process.env.CORS_ORIGIN2
     }
 }
+
+const env = config();
 
 export default env;

@@ -1,5 +1,5 @@
 import { AddPostRepository, LoadUserRepository } from "../../../../infrastructure";
-import { IPost } from "../../../entities/post.type";
+import { IPost } from "../../../entities/post.interface";
 
 export default class AddNewPostUsecase {
     constructor(

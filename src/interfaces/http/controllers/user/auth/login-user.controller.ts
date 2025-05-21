@@ -15,7 +15,7 @@ class LoginUserController {
             const usecaseResponse: {id: number,token: string} | null = await this.loginUserUsecase.execute(user.email,user.password,user.role);
             if (!usecaseResponse) return {body: {message: "invalid credentials"},statusCode: StatusCodes.BAD_REQUEST};
     
-            res.cookie(env().token_secret_key,usecaseResponse.token,{
+            res.cookie(env.token_secret_key,usecaseResponse.token,{
                 httpOnly: true,
                 sameSite: true,
                 maxAge: 24 * (60 * (60 * 1000)) // 24h

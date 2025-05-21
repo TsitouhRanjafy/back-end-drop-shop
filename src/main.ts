@@ -13,13 +13,13 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-    origin: [env().cors_origin1,env().cors_origin2]
+    origin: [env.cors_origin1,env.cors_origin2]
 }))
 app.use(routerSwaggerDocs);
 app.use("/",router);
 
-app.listen(env().port, () => {
-    console.log(` \n server running on http://localhost:${env().port}\n`);
-    console.log(` documentation on http://localhost:${env().port}${endpoints.docs}\n`);  
+app.listen(env.port, () => {
+    console.log(` \n server running on http://localhost:${env.port}`);
+    console.log(` documentation on http://localhost:${env.port}${endpoints.docs}`);  
 })
 

@@ -1,5 +1,5 @@
 import { JwtPayload } from "jsonwebtoken";
-import IUser from "../entities/user.type";
+import IUser from "../entities/user.interface";
 
 export interface ITokenService {
     generer(user: Pick<IUser,"id" | "email" | "role">): string;

@@ -1,7 +1,7 @@
 import { ActionReactionRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveReactionRepository } from "../../../../infrastructure";
-import { IPost } from "../../../entities/post.type";
-import { IReaction } from "../../../entities/reaction.type";
-import IUser from "../../../entities/user.type";
+import { IPost } from "../../../entities/post.interface";
+import { IReaction } from "../../../entities/reaction.interface";
+import IUser from "../../../entities/user.interface";
 
 
 export default class LikeInlikePostUsecase {

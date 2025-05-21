@@ -1,4 +1,4 @@
-import { IReaction } from "../../entities/reaction.type";
+import { IReaction } from "../../entities/reaction.interface";
 
 
 export interface ISaveReactionRepository {

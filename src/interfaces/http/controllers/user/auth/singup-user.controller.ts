@@ -16,7 +16,7 @@ class SignupUserController {
             const usecaseResponse: {id: number,token: string} | null = await this.signupUseCase.exec(user);
             if (!usecaseResponse) return {body: { message: "bad request"}, statusCode: StatusCodes.BAD_REQUEST};
 
-            res.cookie(env().token_secret_key,usecaseResponse.token,{
+            res.cookie(env.token_secret_key,usecaseResponse.token,{
                 httpOnly: true,
                 sameSite: true,
                 maxAge: 24 * (60 * (60 * 1000)) // 24h

@@ -1,4 +1,4 @@
-import IUser from "../../../entities/user.type";
+import IUser from "../../../entities/user.interface";
 import { TokenService, LoadUserRepository, SaveUserReposiroty, Hashage } from "../../../../infrastructure";
 
 
