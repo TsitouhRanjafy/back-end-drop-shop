@@ -17,9 +17,21 @@ class LoadUserRepository implements ILoadUserRepository {
         }
     }
 
-    async getAllUserByRole(role: Role): Promise<IUser[]> {
+    async getAllUserByRole(role: Role,skip: number,take: number): Promise<Pick<IUser,"id" | "firstname" | "lastname" | "region" | "pays" | "profile_url" >[]> {
         try {
-            const users: IUser[] = await prisma.user.findMany({ where: { role: role }})
+            const users: Pick<IUser,"id" | "firstname" | "lastname" | "region" | "pays" | "profile_url" >[] = await prisma.user.findMany({ 
+                where: { role: role },
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastname: true,
+                    region: true,
+                    pays: true,
+                    profile_url: true,
+                },
+                skip: skip,
+                take: take
+            })
             return users;
         } catch (error) {
             throw new DataBaseAccessError("getAllUser",error);

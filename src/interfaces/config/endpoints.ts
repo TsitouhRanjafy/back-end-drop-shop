@@ -5,7 +5,7 @@ const endpoints = {
     signup_admin: '/admin/signup',
     login_admin: '/admin/login',
 
-    getAllUser: '/users/:role',
+    getAllUser: '/users/:role/:skip/:take',
 
     addNewPost: '/post/new/:id_user',
     loadPost: "/posts/:count",

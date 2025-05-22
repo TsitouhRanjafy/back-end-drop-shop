@@ -1,17 +1,30 @@
 import { checkSchema } from "express-validator";
 
-const roleSchemaParams = checkSchema({
+const requestParamsSchema = checkSchema({
     role: {
-        errorMessage: "Invalid role",
-        isLength: {
-            options: { min: 5, max: 6 }
-        },
         isIn: {
+            errorMessage: "Role must be `SELLER` or `BUYER`",
             options: [["SELLER","BUYER","ADMIN"]]
         },
         isEmpty: { negated: true },
         escape: true,
         trim: true,
+    },
+    skip: {
+        isInt: {
+            errorMessage: "skip must be a integer",
+            options: { min: 0 }
+        },
+        toInt: true,
+        optional: false,
+    },
+    take: {
+        isInt: {
+            errorMessage: "take must be a integer",
+            options: { min: 0 }
+        },
+        toInt: true,
+        optional: false
     }
 },['params'])
 
@@ -28,6 +41,6 @@ const countPostSchemaParams = checkSchema({
 },["params"])
 
 export {
-    roleSchemaParams,
+    requestParamsSchema,
     countPostSchemaParams,
 }
