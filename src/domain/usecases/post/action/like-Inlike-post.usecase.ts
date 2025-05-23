@@ -20,7 +20,7 @@ export default class LikeInlikePostUsecase {
             return true;
         }
 
-        const isUserExist: IUser | null = await this.loadUserRepository.getUserById(reaction.id_user);
+        const isUserExist: IUser | null = await this.loadUserRepository.getUserById(reaction.id_user,false);
         if (!isUserExist) return false;
 
         const isPostExist: IPost | null = await this.loadPostRepository.getPostById(reaction.id_post);

@@ -10,6 +10,17 @@ const reactionSchemaBody = checkSchema({ // <= à corriger, use query in place o
     }
 },["query"])
 
+const idUserSchemaQuery = checkSchema({
+    id_user: {
+        isInt: {
+            errorMessage: "id_user must be a integer",
+            options: { min: 0 }
+        },
+        toInt: true
+    }
+})
+
 export {
     reactionSchemaBody,
+    idUserSchemaQuery
 }

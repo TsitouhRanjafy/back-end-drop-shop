@@ -6,6 +6,7 @@ const endpoints = {
     login_admin: '/admin/login',
 
     getAllUser: '/users/:role/:skip/:take',
+    getUserById: '/user', // query: id_user
 
     addNewPost: '/post/new',
     loadPost: "/posts/:count",
