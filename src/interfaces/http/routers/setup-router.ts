@@ -1,30 +1,35 @@
 import { Router } from "express";
 
-import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllUserUsecase, LoadPostUsecase, LoginUserUseCase, SignupUserUseCase } from "../../../domain";
-import { ActionReactionRepository, AddPostRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveCommentRepository, SaveReactionRepository, SaveUserReposiroty, TokenService } from "../../../infrastructure";
+import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllUserUsecase, LoadProductByCountryUsecase, LoadPostUsecase, LoginUserUseCase, SignupUserUseCase } from "../../../domain";
+import { ActionReactionRepository, AddPostRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveCommentRepository, SaveReactionRepository, SaveUserReposiroty, TokenService, TransformService } from "../../../infrastructure";
 
 import AuthUserController from "../controllers/user/auth/auth-user.controller";
+import LoginUserController from "../controllers/user/auth/login-user.controller";
+import SignupUserController from "../controllers/user/auth/singup-user.controller";
+import LoadAllUserController from "../controllers/user/load/load-all-user.controller";
+import AddNewPostController from "../controllers/post/save/add-new-post.controller";
+import LoadPostController from "../controllers/post/load/load-post.controller";
+import LikeInlikePostController from "../controllers/post/action/like-inlike-post.controller";
+import LoadLocalProductController from "../controllers/post/load/load-product-by-country.controller";
+import CommentPostController from "../controllers/post/action/comment-post.controller";
+
+import HashageService from "../../../infrastructure/services/hashage.service";
+
 import { authRouter } from "./user/auth/auth-user.router";
 import { loginUserRouter } from "./user/auth/login-user.router";
 import { signupUserRouter } from "./user/auth/singup-user.router";
-import LoginUserController from "../controllers/user/auth/login-user.controller";
-import HashageService from "../../../infrastructure/services/hashage.service";
-import SignupUserController from "../controllers/user/auth/singup-user.controller";
-import LoadAllUserController from "../controllers/user/load/load-all-user.controller";
 import { loadAllUserRouter } from "./user/load/load-all-user.router";
-import AddNewPostController from "../controllers/post/save/add-new-post.controller";
 import { addNewPostRouter } from "./post/save/add-new-post.router";
-import LoadPostController from "../controllers/post/load/load-post.controller";
 import { loadPostRouter } from "./post/load/load-post.router";
-import LikeInlikePostController from "../controllers/post/action/like-inlike-post.controller";
 import { likeInLikePostRouter } from "./post/action/like-inlike-post.router";
-import CommentPostController from "../controllers/post/action/comment-post.controller";
 import { commentPostRouter } from "./post/action/comment-post.router";
+import { loadLocalProductRouter } from "./post/load/load-product-by-country.router";
 
 const router = Router();
 
 const tokenService = new TokenService();
 const hashageService = new HashageService();
+const transformService = new TransformService();
 
 const loadUserRepository = new LoadUserRepository();
 const saveUserRepository = new SaveUserReposiroty();
@@ -38,12 +43,13 @@ const saveCommentRepository = new SaveCommentRepository();
 
 const authUserUsecase = new AuthUserUsecase(tokenService);
 const loginUserUsecase = new LoginUserUseCase(tokenService, hashageService, loadUserRepository);
-const signupUserUsecase = new SignupUserUseCase(tokenService, hashageService, loadUserRepository, saveUserRepository);
+const signupUserUsecase = new SignupUserUseCase(tokenService, hashageService, loadUserRepository, saveUserRepository,transformService);
 const loadAllUserUsecase = new LoadAllUserUsecase(loadUserRepository);
 const addNewPostUsecase = new AddNewPostUsecase(addPostRepository,loadUserRepository);
 const loadPostUsecase = new LoadPostUsecase(loadPostRepository);
 const likeInlikePostUsecase = new LikeInlikePostUsecase(saveReactionRepository,loadReactionRepository,actionReactionReapository,loadUserRepository,loadPostRepository);
 const commentPostUsecase = new CommentPostUsecase(saveCommentRepository);
+const loadProductByCountryUsecase = new LoadProductByCountryUsecase(loadPostRepository,transformService);
 
 const authUserController = new AuthUserController(authUserUsecase);
 const loginUserController = new LoginUserController(loginUserUsecase);
@@ -53,6 +59,7 @@ const addNewPostController = new AddNewPostController(addNewPostUsecase);
 const loadPostController = new LoadPostController(loadPostUsecase);
 const likeInlikePostController = new LikeInlikePostController(likeInlikePostUsecase);
 const commentPostController = new CommentPostController(commentPostUsecase);
+const loadLocalProductController = new LoadLocalProductController(loadProductByCountryUsecase);
 
 authRouter(router, authUserController);
 loginUserRouter(router, loginUserController);
@@ -62,5 +69,6 @@ addNewPostRouter(router,addNewPostController);
 loadPostRouter(router,loadPostController);
 likeInLikePostRouter(router,likeInlikePostController);
 commentPostRouter(router,commentPostController);
+loadLocalProductRouter(router,loadLocalProductController)
 
 export default router;

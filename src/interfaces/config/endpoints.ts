@@ -7,8 +7,9 @@ const endpoints = {
 
     getAllUser: '/users/:role/:skip/:take',
 
-    addNewPost: '/post/new/:id_user',
+    addNewPost: '/post/new',
     loadPost: "/posts/:count",
+    loadLocalProduct: "/posts/product/local/:country",
     likeInlikePost: "/post/reaction",
     commentPost: "/post/comment",
 

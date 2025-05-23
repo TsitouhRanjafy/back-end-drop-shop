@@ -40,7 +40,17 @@ const countPostSchemaParams = checkSchema({
     }
 },["params"])
 
+const countrySchemaInParams = checkSchema({
+    country: {
+        errorMessage: "country must be a string",
+        isString: true,
+        escape: true,
+        trim: true,
+    }
+})
+
 export {
     requestParamsSchema,
     countPostSchemaParams,
+    countrySchemaInParams,
 }

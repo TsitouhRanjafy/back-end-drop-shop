@@ -22,25 +22,6 @@ const newPostSchema = checkSchema({
         trim: true,
         escape: true
     },
-    id_user: {
-        in: ["params"],
-        isInt: {
-            errorMessage:"id_user must be an integer",
-            options: {min: 1}
-        },
-        toInt: true,
-        notEmpty: {
-            errorMessage: "id_user is required in params"
-        },
-    },
-    create_at: {
-        in: ["body"],
-        optional: true,
-        isISO8601: {
-            errorMessage:"create_at must be a valid ISO 8601 date"
-        },
-        toDate: true,
-    },
     unit_price: {
         in: ["body"],
         optional: true,

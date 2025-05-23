@@ -9,6 +9,7 @@ import SaveReactionRepository from "./database/reaction/save-reaction.repository
 import LoadReactionRepository from "./database/reaction/load-reaction.repository";
 import SaveCommentRepository from "./database/comment/save-comment.repository";
 import LoadCommentRepository from "./database/comment/load-commennt.repository";
+import TransformService from "./services/transform.service";
 // import LoadAdminRepository from "./database/admin/load-admin.repository";
 // import SaveAdminReposiroty from "./database/admin/save-admin.repository";
 
@@ -26,5 +27,6 @@ export {
     SaveReactionRepository,
     LoadReactionRepository,
     SaveCommentRepository,
-    LoadCommentRepository
+    LoadCommentRepository,
+    TransformService
 }
