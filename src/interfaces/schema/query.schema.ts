@@ -18,9 +18,20 @@ const idUserSchemaQuery = checkSchema({
         },
         toInt: true
     }
-})
+},["query"])
+
+const idPostSchemaQuery = checkSchema({
+    id_post: {
+        isInt: {
+            errorMessage: "id_post must be a integer",
+            options: { min: 0 }
+        },
+        toInt: true
+    }
+},["query"])
 
 export {
     reactionSchemaBody,
-    idUserSchemaQuery
+    idUserSchemaQuery,
+    idPostSchemaQuery
 }

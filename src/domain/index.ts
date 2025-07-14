@@ -29,6 +29,7 @@ import LikeInlikePostUsecase from "./usecases/post/action/like-Inlike-post.useca
 import CommentPostUsecase from "./usecases/post/action/comment-post.usecase";
 import LoadProductByCountryUsecase from "./usecases/post/load/load-product-by-country.usecase";
 import LoadUserByIdUsecase from "./usecases/user/load/load-user-by-id.usecase";
+import LoadAllCommentUsecase from "./usecases/comment/load-all-comment.usecase";
 
 
 export {
@@ -63,5 +64,6 @@ export {
     LikeInlikePostUsecase,
     CommentPostUsecase,
     LoadProductByCountryUsecase,
-    LoadUserByIdUsecase
+    LoadUserByIdUsecase,
+    LoadAllCommentUsecase
 }
