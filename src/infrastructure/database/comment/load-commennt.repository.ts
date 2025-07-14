@@ -5,9 +5,21 @@ import prisma from "../prismaClient";
 
 export default class LoadCommentRepository implements ILoadCommentRepository {
 
-    async getCommentForAPost(id_post: number): Promise<IComment[] | null> {
+    async getCommentForAPost(id_post: number, is_desc?: boolean): Promise<IComment[] | null> {
         try {
-            const comments: IComment[] | null = await prisma.comment.findMany({where: {id_post}});
+            let comments: IComment[] | null;
+            if (is_desc){
+                comments = await prisma.comment.findMany({
+                    where: { id_post },
+                    orderBy: {
+                        date: is_desc ? "desc" : "asc",
+                    }
+                });
+                return comments;
+            }
+            comments = await prisma.comment.findMany({
+                where: { id_post },
+            })
             return comments;
         } catch (error) {
             throw new DataBaseAccessError("getCommentForAPost",error);

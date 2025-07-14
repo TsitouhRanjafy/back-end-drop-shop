@@ -10,9 +10,9 @@ export default class LoadAllCommentController{
     ){}
 
     async handle(req: Request): Promise<IHttpResponse<IComment[] | {message: string}>>{
-        const { id_post } = req.query;
+        const { id_post, is_desc } = req.query;
         try {
-            const allComment = await this.loadAllCommentUsecase.exec(Number(id_post));
+            const allComment = await this.loadAllCommentUsecase.exec(Number(id_post), is_desc === 'true');
             return {
                 body: allComment ? allComment : [],
                 statusCode: StatusCodes.OK
