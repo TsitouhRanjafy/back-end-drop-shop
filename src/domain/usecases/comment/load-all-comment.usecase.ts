@@ -6,7 +6,7 @@ export default class LoadAllCommentUsecase {
         private loadCommentRepository: LoadCommentRepository
     ){}
 
-    async exec(id_post: number, is_desc?: boolean): Promise<IComment[] | null>{
+    async exec(id_post: number, is_desc?: boolean): Promise<Omit<IComment,"id_post" | "id_user">[] | null>{
         const allComment = await this.loadCommentRepository.getCommentForAPost(id_post, is_desc);
         return allComment;
     }

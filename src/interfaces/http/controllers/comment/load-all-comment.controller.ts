@@ -9,7 +9,7 @@ export default class LoadAllCommentController{
         private loadAllCommentUsecase: LoadAllCommentUsecase
     ){}
 
-    async handle(req: Request): Promise<IHttpResponse<IComment[] | {message: string}>>{
+    async handle(req: Request): Promise<IHttpResponse<Omit<IComment,"id_post" | "id_user">[] | {message: string}>>{
         const { id_post, is_desc } = req.query;
         try {
             const allComment = await this.loadAllCommentUsecase.exec(Number(id_post), is_desc === 'true');
