@@ -1,7 +1,8 @@
+
 export interface IComment {
-    id: number,
+    id: number;
     content: string;
-    id_post: number,
-    id_user: number,
+    id_post: number;
+    id_user: number;
     date: Date;
 }

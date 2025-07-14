@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-    origin: [env.cors_origin1,env.cors_origin2]
+    origin: [env.cors_origin1,env.cors_origin2,env.cors_origin3,env.cors_origin4]
 }))
 app.use(routerSwaggerDocs);
 app.use("/",router);

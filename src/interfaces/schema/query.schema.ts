@@ -27,6 +27,14 @@ const idPostSchemaQuery = checkSchema({
             options: { min: 0 }
         },
         toInt: true
+    },
+    is_desc: {
+        isBoolean: {
+            errorMessage: "is_desc must be a boolean",
+        },
+        optional : {
+            options: { nullable: true }
+        }
     }
 },["query"])
 
