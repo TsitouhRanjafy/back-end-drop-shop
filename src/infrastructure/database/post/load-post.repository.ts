@@ -53,8 +53,16 @@ export default class LoadPostRepository implements ILoadPostRepository {
                             comment: true,
                             reaction: true
                         }
+                    },
+                    user: {
+                        select: {
+                            firstname: true,
+                            lastname: true,
+                            region: true,
+                            pays: true
+                        }
                     }
-                }
+                },
             });
             return posts;
         } catch (error) {
