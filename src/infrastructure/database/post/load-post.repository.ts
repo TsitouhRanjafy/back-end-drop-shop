@@ -1,16 +1,16 @@
-import { ILoadPostRepository, IPost } from "../../../domain";
+import { ILoadPostRepository, IPost, IReaction } from "../../../domain";
 import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class LoadPostRepository implements ILoadPostRepository {
-    async getPostByUserId(id_user: number): Promise<Pick<IPost, "id">[] | []> {
+    async getPostByUserId(id_user: number): Promise<Pick<IReaction, "id_post">[] | []> {
         try {
-            const posts: Pick<IPost,"id">[] = await prisma.post.findMany({
+            const posts: Pick<IReaction,"id_post">[] = await prisma.reaction.findMany({
                 where: { id_user },
                 select: {
-                    id: true
+                    id_post: true
                 }
-            })
+            });
             return posts;
         } catch (error) {
             throw new DataBaseAccessError("getPostByUserId",error);
