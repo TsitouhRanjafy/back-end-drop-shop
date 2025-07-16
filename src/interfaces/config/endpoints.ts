@@ -16,6 +16,7 @@ const endpoints = {
     loadLocalProduct: "/posts/product/local/:country",
     likeInlikePost: "/post/reaction",
     commentPost: "/post/comment",
+    getPostByUserId: "/post", // query id_user
 
     // comment
     getAllComment: '/comment/all', // query: id_post

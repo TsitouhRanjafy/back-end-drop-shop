@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllUserUsecase, LoadProductByCountryUsecase, LoadPostUsecase, LoginUserUseCase, SignupUserUseCase, LoadUserByIdUsecase, LoadAllCommentUsecase } from "../../../domain";
+import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllUserUsecase, LoadProductByCountryUsecase, LoadPostUsecase, LoginUserUseCase, SignupUserUseCase, LoadUserByIdUsecase, LoadAllCommentUsecase, LoadPostByUserIdUsecase } from "../../../domain";
 import { ActionReactionRepository, AddPostRepository, LoadCommentRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveCommentRepository, SaveReactionRepository, SaveUserReposiroty, TokenService, TransformService } from "../../../infrastructure";
 
 import AuthUserController from "../controllers/user/auth/auth-user.controller";
@@ -28,6 +28,8 @@ import LoadUserByIdController from "../controllers/user/load/load-user-by-id.con
 import { loadUserByIdRouter } from "./user/load/load-user-by-id.router";
 import { loadAllCommentRouter } from "./comment/load-all-comment.router";
 import LoadAllCommentController from "../controllers/comment/load-all-comment.controller";
+import LoadPostByUserIdController from "../controllers/post/load/load-post-by-user-id.controller";
+import { loadPostByUserIdRouter } from "./post/load/load-post-by-user-id.router";
 
 const router = Router();
 
@@ -60,6 +62,7 @@ const commentPostUsecase = new CommentPostUsecase(saveCommentRepository);
 const loadProductByCountryUsecase = new LoadProductByCountryUsecase(loadPostRepository,transformService);
 const loadUserByIdUsecase = new LoadUserByIdUsecase(loadUserRepository);
 const loadAllCommentUsecase = new LoadAllCommentUsecase(loadCommentRepository);
+const loadPostByUserIdUsecase = new LoadPostByUserIdUsecase(loadPostRepository);
 
 // Controller
 const authUserController = new AuthUserController(authUserUsecase);
@@ -73,6 +76,7 @@ const commentPostController = new CommentPostController(commentPostUsecase);
 const loadLocalProductController = new LoadLocalProductController(loadProductByCountryUsecase);
 const loadUserByIdController = new LoadUserByIdController(loadUserByIdUsecase);
 const loadAllCommentController = new LoadAllCommentController(loadAllCommentUsecase);
+const loadPostByUserIdController = new LoadPostByUserIdController(loadPostByUserIdUsecase);
 
 authRouter(router, authUserController);
 loginUserRouter(router, loginUserController);
@@ -85,5 +89,6 @@ commentPostRouter(router,commentPostController);
 loadLocalProductRouter(router,loadLocalProductController);
 loadUserByIdRouter(router,loadUserByIdController);
 loadAllCommentRouter(router,loadAllCommentController);
+loadPostByUserIdRouter(router,loadPostByUserIdController);
 
 export default router;

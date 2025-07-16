@@ -3,6 +3,19 @@ import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class LoadPostRepository implements ILoadPostRepository {
+    async getPostByUserId(id_user: number): Promise<Pick<IPost, "id">[] | []> {
+        try {
+            const posts: Pick<IPost,"id">[] = await prisma.post.findMany({
+                where: { id_user },
+                select: {
+                    id: true
+                }
+            })
+            return posts;
+        } catch (error) {
+            throw new DataBaseAccessError("getPostByUserId",error);
+        }
+    }
 
     async getPostByCountryUser(userCountry: string): Promise<Omit<IPost, "type" | "create_at" | "stock">[] | null> {
         try {
@@ -59,7 +72,8 @@ export default class LoadPostRepository implements ILoadPostRepository {
                             firstname: true,
                             lastname: true,
                             region: true,
-                            pays: true
+                            pays: true,
+                            profile_url: true
                         }
                     }
                 },
