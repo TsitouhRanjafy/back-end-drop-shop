@@ -22,7 +22,8 @@ export default class LoadCommentRepository implements ILoadCommentRepository {
                         user: {
                             select: {
                                 firstname: true,
-                                lastname: true
+                                lastname: true,
+                                profile_url: true
                             }
                         }
                     }
