@@ -1,0 +1,44 @@
+# -----------------------------------------------------------
+# Dockerfile.prod
+# -----------------------------------------------------------
+
+FROM node:22.19.0 AS builder
+WORKDIR /app
+RUN npm install -g npm@11.6.0
+
+# Install depandence
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+
+# générer Prisma client
+COPY prisma ./prisma
+RUN npx prisma generate
+
+COPY . .
+
+# compiler typescript vers dist/
+RUN npm run start:build
+
+#--------------- Image final ---------------
+FROM node:22.19.0
+WORKDIR /app
+RUN npm install -g npm@11.6.0
+
+COPY package.json .
+COPY package-lock.json .
+
+# Installation depandence avec devDevpandence non inclus
+RUN npm install --omit=dev
+
+# copier le JS compilé et le client Prisma depuis l'étape builder
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/prisma ./prisma
+
+RUN npx prisma generate --no-engine
+
+EXPOSE 5000
+
+ENV NODE_ENV=production
+
+CMD ["npm","run","start:prod"]
