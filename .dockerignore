@@ -1,0 +1,30 @@
+# Dépendances locales (toujours regénérées dans le conteneur)
+node_modules
+
+# Version build
+dist
+
+# Fichiers d'environnement (secrets)
+.env.dev
+.env.prod
+.exemple.env
+*.env
+
+# Logs
+npm-debug.log
+
+# Docker files (pas besoin dans l'image)
+Dockerfile.dev
+Dockerfile.prod
+.dockerignore
+
+# Git et CI/CD
+.git 
+.gitignore
+
+# Autres fichiers inutiles
+*.md
+*.log
+.lintstagedrc
+.husky
+
