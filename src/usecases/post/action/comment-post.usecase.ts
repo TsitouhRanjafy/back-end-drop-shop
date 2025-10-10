@@ -1,4 +1,4 @@
-import { SaveCommentRepository } from "../../../../infrastructure";
+import { SaveCommentRepository } from "../../../infrastructure";
 import { IComment } from "../../../domain/entities/comment.interface";
 
 export default class CommentPostUsecase {

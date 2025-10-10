@@ -4,7 +4,7 @@ import { ReasonPhrases, StatusCodes } from "http-status-codes"
 import endpoints from "../../../../configuration/endpoints.config"
 import newPostSchema from "../../../schema/newpost.schema"
 import { validateRequest } from "../../../middleware/validate-request.middleware"
-import { IHttpResponse, IPost } from "../../../../core/domain"
+import { IHttpResponse, IPost } from "../../../../domain"
 import { authMiddlware } from "../../../middleware/auth-user.middleware"
 import { AddNewPostController } from "../../../../controllers"
 

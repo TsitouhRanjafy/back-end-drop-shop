@@ -1,9 +1,9 @@
 import { Request } from "express";
 
-import { IHttpResponse, IPost } from "../../../core/domain";
+import { IHttpResponse, IPost } from "../../../domain";
 import { StatusCodes } from "http-status-codes";
 import { ControllerError } from "../../error/controllers.error";
-import { LoadPostUsecase } from "../../../core/usecases";
+import { LoadPostUsecase } from "../../../usecases";
 
 export default class LoadPostController {
     constructor(

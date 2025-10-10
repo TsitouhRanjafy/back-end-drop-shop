@@ -1,9 +1,9 @@
 import { Request } from "express";
 
-import { IHttpResponse, IUser } from "../../../core/domain";
+import { IHttpResponse, IUser } from "../../../domain";
 import { ControllerError } from "../../error/controllers.error";
 import { StatusCodes } from "http-status-codes";
-import { LoadUserByIdUsecase } from "../../../core/usecases";
+import { LoadUserByIdUsecase } from "../../../usecases";
 
 export default class LoadUserByIdController {
     constructor(

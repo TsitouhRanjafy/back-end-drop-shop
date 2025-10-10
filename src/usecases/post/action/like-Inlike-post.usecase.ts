@@ -1,4 +1,4 @@
-import { ActionReactionRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveReactionRepository } from "../../../../infrastructure";
+import { ActionReactionRepository, LoadPostRepository, LoadReactionRepository, LoadUserRepository, SaveReactionRepository } from "../../../infrastructure";
 import { IPost } from "../../../domain/entities/post.interface";
 import { IReaction } from "../../../domain/entities/reaction.interface";
 import IUser from "../../../domain/entities/user.interface";

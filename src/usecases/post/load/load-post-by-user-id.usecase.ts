@@ -1,4 +1,4 @@
-import { LoadPostRepository } from "../../../../infrastructure";
+import { LoadPostRepository } from "../../../infrastructure";
 import { IReaction } from "../../../domain/entities/reaction.interface";
 
 export default class LoadPostByUserIdUsecase {

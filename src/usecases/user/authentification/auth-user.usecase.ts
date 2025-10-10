@@ -1,4 +1,4 @@
-import { TokenService } from "../../../../infrastructure";
+import { TokenService } from "../../../infrastructure";
 import { JwtPayload } from "jsonwebtoken";
 import IUser from "../../../domain/entities/user.interface";
 

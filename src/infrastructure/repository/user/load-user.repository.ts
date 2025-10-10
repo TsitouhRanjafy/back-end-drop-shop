@@ -1,5 +1,5 @@
 import { Role } from "@prisma/client";
-import { IUser, ILoadUserRepository } from "../../../core/domain";
+import { IUser, ILoadUserRepository } from "../../../domain";
 import prisma from "../prismaClient";
 import { DataBaseAccessError } from "../../error/repositories.error";
 

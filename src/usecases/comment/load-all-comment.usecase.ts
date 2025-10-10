@@ -1,4 +1,4 @@
-import { LoadCommentRepository } from "../../../infrastructure";
+import { LoadCommentRepository } from "../../infrastructure";
 import { IComment } from "../../domain/entities/comment.interface";
 
 export default class LoadAllCommentUsecase {

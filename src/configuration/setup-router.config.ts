@@ -41,7 +41,7 @@ import { loadAllCommentRouter } from "../interfaces/routers/comment/load-all-com
 import LoadAllCommentController from "../controllers/comment/load-all-comment.controller";
 import LoadPostByUserIdController from "../controllers/post/load/load-post-by-user-id.controller";
 import { loadPostByUserIdRouter } from "../interfaces/routers/post/load/load-post-by-user-id.router";
-import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllCommentUsecase, LoadAllUserUsecase, LoadPostByUserIdUsecase, LoadPostUsecase, LoadProductByCountryUsecase, LoadUserByIdUsecase, LoginUserUseCase, SignupUserUseCase } from "../core/usecases";
+import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllCommentUsecase, LoadAllUserUsecase, LoadPostByUserIdUsecase, LoadPostUsecase, LoadProductByCountryUsecase, LoadUserByIdUsecase, LoginUserUseCase, SignupUserUseCase } from "../usecases";
 
 
 const router = Router();

@@ -1,4 +1,4 @@
-import { AddPostRepository, LoadUserRepository } from "../../../../infrastructure";
+import { AddPostRepository, LoadUserRepository } from "../../../infrastructure";
 import { IPost } from "../../../domain/entities/post.interface";
 
 export default class AddNewPostUsecase {

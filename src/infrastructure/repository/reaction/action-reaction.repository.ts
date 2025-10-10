@@ -1,4 +1,4 @@
-import { IActionReactionRespository } from "../../../core/domain";
+import { IActionReactionRespository } from "../../../domain";
 import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 

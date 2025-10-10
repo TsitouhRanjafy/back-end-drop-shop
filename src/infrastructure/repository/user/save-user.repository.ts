@@ -1,4 +1,4 @@
-import { ISaveUserRepository, IUser } from "../../../core/domain";
+import { ISaveUserRepository, IUser } from "../../../domain";
 import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 

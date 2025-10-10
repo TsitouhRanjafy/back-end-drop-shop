@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import endpoints from "../../../../configuration/endpoints.config";
 import { idUserSchemaQuery } from "../../../schema/query.schema";
 import { validateRequest } from "../../../middleware/validate-request.middleware";
-import { IHttpResponse, IReaction } from "../../../../core/domain";
+import { IHttpResponse, IReaction } from "../../../../domain";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { LoadPostByUserIdController } from "../../../../controllers";
 

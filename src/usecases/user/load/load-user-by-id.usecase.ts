@@ -1,4 +1,4 @@
-import { LoadUserRepository } from "../../../../infrastructure";
+import { LoadUserRepository } from "../../../infrastructure";
 import IUser from "../../../domain/entities/user.interface";
 
 export default class LoadUserByIdUsecase {

@@ -1,4 +1,4 @@
-import { ITransformService } from "../../core/domain";
+import { ITransformService } from "../../domain";
 
 class TransformService implements ITransformService {
     capitalize(word: string): string {

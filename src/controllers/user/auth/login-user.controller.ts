@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 import env from "../../../configuration/env.config";
-import { IHttpResponse, IUser } from "../../../core/domain";
+import { IHttpResponse, IUser } from "../../../domain";
 import { ControllerError } from "../../error/controllers.error";
-import { LoginUserUseCase } from "../../../core/usecases";
+import { LoginUserUseCase } from "../../../usecases";
 
 
 class LoginUserController {

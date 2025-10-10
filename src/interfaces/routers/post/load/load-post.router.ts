@@ -3,7 +3,7 @@ import { Router, Request, Response } from "express";
 import endpoints from "../../../../configuration/endpoints.config";
 import { countPostSchemaParams } from "../../../schema/params.schema";
 import { validateRequest } from "../../../middleware/validate-request.middleware";
-import { IHttpResponse, IPost } from "../../../../core/domain";
+import { IHttpResponse, IPost } from "../../../../domain";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { LoadPostController } from "../../../../controllers";
 

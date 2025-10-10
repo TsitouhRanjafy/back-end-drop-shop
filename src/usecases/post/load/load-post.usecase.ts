@@ -1,5 +1,5 @@
 
-import { LoadPostRepository } from "../../../../infrastructure";
+import { LoadPostRepository } from "../../../infrastructure";
 import { IPost } from "../../../domain/entities/post.interface";
 
 export default class LoadPostUsecase {

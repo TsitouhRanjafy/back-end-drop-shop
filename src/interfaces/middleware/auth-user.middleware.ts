@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
-import { ITokenDecoded } from "../../core/domain";
+import { ITokenDecoded } from "../../domain";
 import { TokenService } from "../../infrastructure";
 
 export const authMiddlware = (req: Request, res: Response, next: NextFunction) => {

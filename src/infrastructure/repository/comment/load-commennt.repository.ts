@@ -1,5 +1,5 @@
-import { IComment } from "../../../core/domain";
-import { ILoadCommentRepository } from "../../../core/domain/repositories/comment/load-comment-repository.interface";
+import { IComment } from "../../../domain";
+import { ILoadCommentRepository } from "../../../domain/repositories/comment/load-comment-repository.interface";
 import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 

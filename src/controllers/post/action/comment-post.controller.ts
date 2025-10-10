@@ -1,9 +1,9 @@
 import { Request } from "express";
 import { StatusCodes } from "http-status-codes";
 
-import { IComment, IHttpResponse } from "../../../core/domain";
+import { IComment, IHttpResponse } from "../../../domain";
 import { ControllerError } from "../../error/controllers.error";
-import { CommentPostUsecase } from "../../../core/usecases";
+import { CommentPostUsecase } from "../../../usecases";
 
 
 export default class CommentPostController {

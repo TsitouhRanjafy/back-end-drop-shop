@@ -1,4 +1,4 @@
-import { LoadPostRepository, TransformService } from "../../../../infrastructure";
+import { LoadPostRepository, TransformService } from "../../../infrastructure";
 import { IPost } from "../../../domain/entities/post.interface";
 
 export default class LoadProductByCountryUsecase {

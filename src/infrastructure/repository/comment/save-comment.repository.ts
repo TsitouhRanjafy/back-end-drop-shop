@@ -1,4 +1,4 @@
-import { IComment, ISaveCommentRepository } from "../../../core/domain";
+import { IComment, ISaveCommentRepository } from "../../../domain";
 import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 

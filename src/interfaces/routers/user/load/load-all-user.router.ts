@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
 import endpoints from "../../../../configuration/endpoints.config";
-import { IHttpResponse, IUser } from "../../../../core/domain";
+import { IHttpResponse, IUser } from "../../../../domain";
 import { requestParamsSchema } from "../../../schema/params.schema";
 import { validateRequest } from "../../../middleware/validate-request.middleware";
 import { LoadAllUserController } from "../../../../controllers";
