@@ -18,7 +18,7 @@ Cette projet est développer avec `Node: v22.19.0` avec `Typescript: v8.28.0` en
 ```
 
 - **`domain`**: Contient le *logique métier pure*     
-    `ex`: La formule pour calculer les intérêt sur un prêt est la même qu'elle est utilisé sur une feuille de papier ou implementer dans une application.
+        `ex`: La formule pour calculer les intérêt sur un prêt est la même qu'elle est utilisé sur une feuille de papier ou implementer dans une application.
 
 - **`usecase`**: Contient les *intenstions* des utilisateurs dans le système.     
     `ex`: En tant que banquier, je veux pouvoir simuler le coût d'un prêt immobiliser sur N années.     
@@ -42,6 +42,8 @@ Cette projet est développer avec `Node: v22.19.0` avec `Typescript: v8.28.0` en
 
 ### Flow
 
+...
+
 ### Philosophie
 
 - Depuis `src`, le sous-dossier ne doit pas plus de 3
@@ -50,10 +52,12 @@ Cette projet est développer avec `Node: v22.19.0` avec `Typescript: v8.28.0` en
 
 ### Git Flow
 
+<img width="400" height="200" src="https://github.com/user-attachments/assets/7f18d77e-1922-4439-8123-118c819f5830"/>
 
 ## Développement
 
 
 ### The [database conception](https://drive.google.com/file/d/1hnSGUgrMk2PCUbNxZhBGJkvHQSActJXq/view?usp=drive_link)
+
 
 
