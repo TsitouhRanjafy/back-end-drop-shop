@@ -1,11 +1,11 @@
 import { Role } from "@prisma/client";
-import { Hashage, LoadUserRepository, TokenService } from "../../../../infrastructure";
+import { HashageService, LoadUserRepository, TokenService } from "../../../../infrastructure";
 
 
 class LoginUserUseCase {
     constructor(
         private tokenService: TokenService,
-        private hashageService: Hashage,
+        private hashageService: HashageService,
         private loadUserRepository: LoadUserRepository
     ){}
 

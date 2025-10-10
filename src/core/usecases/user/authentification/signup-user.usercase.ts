@@ -1,11 +1,11 @@
 import IUser from "../../../domain/entities/user.interface";
-import { TokenService, LoadUserRepository, SaveUserReposiroty, Hashage, TransformService } from "../../../../infrastructure";
+import { TokenService, LoadUserRepository, SaveUserReposiroty, HashageService, TransformService } from "../../../../infrastructure";
 
 
 class SignupUserUseCase {
     constructor(
         private tokenService: TokenService,
-        private hashageService: Hashage,
+        private hashageService: HashageService,
         private loadUserRepository: LoadUserRepository,
         private saveUserRepository: SaveUserReposiroty,
         private transformService: TransformService
