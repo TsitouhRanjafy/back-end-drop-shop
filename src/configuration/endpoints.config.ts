@@ -20,9 +20,6 @@ const endpoints = {
 
     // comment
     getAllComment: '/comment/all', // query: id_post
-
-    docs:'/api-docs',
-
 }
 
 export default endpoints;

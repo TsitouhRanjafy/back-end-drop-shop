@@ -1,14 +1,14 @@
-import SaveUserReposiroty from "./database/user/save-user.repository";
-import LoadUserRepository from "./database/user/load-user.repository";
+import SaveUserReposiroty from "./repository/user/save-user.repository";
+import LoadUserRepository from "./repository/user/load-user.repository";
 import TokenService from "./services/token.service";
-import Hashage from "./services/hashage.service";
-import AddPostRepository from "./database/post/add-post.repository";
-import LoadPostRepository from "./database/post/load-post.repository";
-import ActionReactionRepository from "./database/reaction/action-reaction.repository";
-import SaveReactionRepository from "./database/reaction/save-reaction.repository";
-import LoadReactionRepository from "./database/reaction/load-reaction.repository";
-import SaveCommentRepository from "./database/comment/save-comment.repository";
-import LoadCommentRepository from "./database/comment/load-commennt.repository";
+import HashageService from "./services/hashage.service";
+import AddPostRepository from "./repository/post/add-post.repository";
+import LoadPostRepository from "./repository/post/load-post.repository";
+import ActionReactionRepository from "./repository/reaction/action-reaction.repository";
+import SaveReactionRepository from "./repository/reaction/save-reaction.repository";
+import LoadReactionRepository from "./repository/reaction/load-reaction.repository";
+import SaveCommentRepository from "./repository/comment/save-comment.repository";
+import LoadCommentRepository from "./repository/comment/load-commennt.repository";
 import TransformService from "./services/transform.service";
 // import LoadAdminRepository from "./database/admin/load-admin.repository";
 // import SaveAdminReposiroty from "./database/admin/save-admin.repository";
@@ -17,10 +17,11 @@ import TransformService from "./services/transform.service";
 export {
     SaveUserReposiroty,
     LoadUserRepository,
+    TokenService,
+    HashageService,
+    
     // LoadAdminRepository,
     // SaveAdminReposiroty,
-    TokenService,
-    Hashage,
     AddPostRepository,
     LoadPostRepository,
     ActionReactionRepository,

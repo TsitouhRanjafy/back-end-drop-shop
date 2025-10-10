@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt"
-import { IHashageService } from "../../core/domain";
+import { IHashageService } from "../../domain";
 
 class HashageService implements IHashageService {
 
