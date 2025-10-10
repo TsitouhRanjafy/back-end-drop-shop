@@ -1,4 +1,4 @@
-import { IReaction, ISaveReactionRepository } from "../../../domain";
+import { IReaction, ISaveReactionRepository } from "../../../core/domain";
 import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 

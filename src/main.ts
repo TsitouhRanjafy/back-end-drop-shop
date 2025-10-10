@@ -1,10 +1,10 @@
 import express, { Application, urlencoded } from 'express';
-import { env } from './interfaces';
-import endpoints from './interfaces/config/endpoints';
+import env from './configuration/env.config';
+import endpoints from './configuration/endpoints.config';
 import cookieParser from 'cookie-parser';
 import cors from "cors"
 import routerSwaggerDocs from './interfaces/documentation/swagger.routes';
-import router from './interfaces/http/routers/setup-router';
+import router from './infrastructure/web/routers/setup-router';
 
 
 const app: Application = express();

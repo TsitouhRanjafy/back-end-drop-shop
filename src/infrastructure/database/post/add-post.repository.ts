@@ -1,4 +1,4 @@
-import { IPost, ISavePostRepository } from "../../../domain";
+import { IPost, ISavePostRepository } from "../../../core/domain";
 import { DataBaseAccessError } from "../../error/repositories.error";
 import prisma from "../prismaClient";
 

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
-import { env } from "../../interfaces";
-import { ITokenDecoded, ITokenService, IUser } from "../../domain";
+import env from '../../configuration/env.config';
+import { ITokenDecoded, ITokenService, IUser } from "../../core/domain";
 
 class TokenService implements ITokenService {
 
