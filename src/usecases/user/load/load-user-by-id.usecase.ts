@@ -1,9 +1,9 @@
-import { LoadUserRepository } from "../../../infrastructure";
 import IUser from "../../../domain/entities/user.interface";
+import { ILoadUserRepository } from "../../../domain";
 
 export default class LoadUserByIdUsecase {
     constructor(
-        private loadUserRepository: LoadUserRepository
+        private loadUserRepository: ILoadUserRepository
     ){}
 
     async exec(id:number,includePassword: boolean): Promise<IUser | null>{

@@ -1,10 +1,10 @@
-import { AddPostRepository, LoadUserRepository } from "../../../infrastructure";
 import { IPost } from "../../../domain/entities/post.interface";
+import { ILoadUserRepository, ISavePostRepository } from "../../../domain";
 
 export default class AddNewPostUsecase {
     constructor(
-        private addPostRepository: AddPostRepository,
-        private loadUserRepository: LoadUserRepository
+        private addPostRepository: ISavePostRepository,
+        private loadUserRepository: ILoadUserRepository
     ){}
 
     async exec(newPost: Omit<IPost,"id" | "create_at" | "reaction">): Promise<IPost | null> {

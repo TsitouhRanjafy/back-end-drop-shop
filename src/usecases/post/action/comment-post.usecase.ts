@@ -1,9 +1,9 @@
-import { SaveCommentRepository } from "../../../infrastructure";
 import { IComment } from "../../../domain/entities/comment.interface";
+import { ISaveCommentRepository } from "../../../domain";
 
 export default class CommentPostUsecase {
     constructor(
-        private saveCommentRepository: SaveCommentRepository
+        private saveCommentRepository: ISaveCommentRepository
     ){}
 
     async exec(comment: Omit<IComment,"id" | "date">): Promise<IComment | null>{

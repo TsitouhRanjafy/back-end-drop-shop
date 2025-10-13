@@ -1,10 +1,10 @@
-import { LoadPostRepository, FormaterService } from "../../../infrastructure";
 import { IPost } from "../../../domain/entities/post.interface";
+import { IFormaterService, ILoadPostRepository } from "../../../domain";
 
 export default class LoadProductByCountryUsecase {
     constructor(
-        private loadPostRepository: LoadPostRepository,
-        private formaterService: FormaterService
+        private loadPostRepository: ILoadPostRepository,
+        private formaterService: IFormaterService
     ){}
 
     async exec(userCountry: string){

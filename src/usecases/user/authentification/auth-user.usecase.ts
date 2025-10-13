@@ -1,11 +1,11 @@
-import { TokenService } from "../../../infrastructure";
 import { JwtPayload } from "jsonwebtoken";
 import IUser from "../../../domain/entities/user.interface";
+import { ITokenService } from "../../../domain";
 
 
 class AuthUserUsecase {
     constructor(
-        private tokenService: TokenService
+        private tokenService: ITokenService
     ){}
 
     execute(token: string): Pick<IUser,"id" | "email" | "role"> | null{

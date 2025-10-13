@@ -1,19 +1,18 @@
+import { IFormaterService, IHashageService, ILoadUserRepository, ISaveUserRepository, ITokenService } from "../../../domain";
 import IUser from "../../../domain/entities/user.interface";
-import { TokenService, LoadUserRepository, SaveUserReposiroty, HashageService, FormaterService } from "../../../infrastructure";
-
-
 class SignupUserUseCase {
     constructor(
-        private tokenService: TokenService,
-        private hashageService: HashageService,
-        private loadUserRepository: LoadUserRepository,
-        private saveUserRepository: SaveUserReposiroty,
-        private transformService: FormaterService
+        private tokenService: ITokenService,
+        private hashageService: IHashageService,
+        private loadUserRepository: ILoadUserRepository,
+        private saveUserRepository: ISaveUserRepository,
+        private transformService: IFormaterService
     ){}
 
     async exec(user: Omit<IUser,"id">): Promise<{id: number,token: string} | null>{
         let isExistUser: IUser | null = await this.loadUserRepository.getUserByEmail(user.email,user.role);
         if(isExistUser && isExistUser.role == user.role) return null; 
+
         isExistUser = await this.loadUserRepository.getUserByTel(user.tel);
         if(isExistUser) return null; 
 
