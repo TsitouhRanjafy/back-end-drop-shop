@@ -1,5 +1,5 @@
 import IUser from "../../../domain/entities/user.interface";
-import { TokenService, LoadUserRepository, SaveUserReposiroty, HashageService, TransformService } from "../../../infrastructure";
+import { TokenService, LoadUserRepository, SaveUserReposiroty, HashageService, FormaterService } from "../../../infrastructure";
 
 
 class SignupUserUseCase {
@@ -8,7 +8,7 @@ class SignupUserUseCase {
         private hashageService: HashageService,
         private loadUserRepository: LoadUserRepository,
         private saveUserRepository: SaveUserReposiroty,
-        private transformService: TransformService
+        private transformService: FormaterService
     ){}
 
     async exec(user: Omit<IUser,"id">): Promise<{id: number,token: string} | null>{

@@ -9,7 +9,7 @@ import { IPost } from "./entities/post.interface";
 import { IReaction } from "./entities/reaction.interface";
 import { IComment } from "./entities/comment.interface";
 import { ITokenDecoded } from "./entities/custom.interface";
-import { ITransformService } from "./services/transform-service.interface";
+import { IFormaterService } from "./services/formater-service.interface";
 
 // Interface Repository
 // import { ILoadAdminRepository, ISaveAdminRepository } from "./repositories/admin/admin-repository.interface";
@@ -30,7 +30,7 @@ export {
     ITokenService,
     IHashageService,
     IHttpResponse,
-    ITransformService,
+    IFormaterService,
     
     IPost,
     IReaction,

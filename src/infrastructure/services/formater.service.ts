@@ -1,6 +1,6 @@
-import { ITransformService } from "../../domain";
+import { IFormaterService } from "../../domain";
 
-class TransformService implements ITransformService {
+class TransformService implements IFormaterService {
     capitalize(word: string): string {
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     }
