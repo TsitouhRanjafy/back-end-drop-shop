@@ -21,6 +21,7 @@ import { ILoadReactionRepository } from "./repositories/reaction/load-reaction-r
 import { ISaveReactionRepository } from "./repositories/reaction/save-reaction-repository.interface";
 import { IActionReactionRespository } from "./repositories/reaction/action-reaction-repository.interface";
 import { ISaveCommentRepository } from "./repositories/comment/save-comment-repository.interface";
+import { ILoadCommentRepository } from "./repositories/comment/load-comment-repository.interface";
 
 
 export {
@@ -45,5 +46,5 @@ export {
     ISaveReactionRepository,
     IActionReactionRespository,
     ISaveCommentRepository,
-
+    ILoadCommentRepository
 }
