@@ -17,7 +17,7 @@ class SignupUserUseCase {
         if(isExistUser) return null; 
 
         const passwordHashed: string = await this.hashageService.hash(user.password);
-        const newUser: IUser = await this.saveUserRepository.sinup({
+        const newUser: IUser = await this.saveUserRepository.signup({
             ...user,
             password: passwordHashed,
             pays: this.transformService.capitalize(user.pays)
