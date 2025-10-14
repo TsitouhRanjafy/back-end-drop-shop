@@ -3,14 +3,12 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start:dev": "dotenvx run -- nodemon ./src/main.ts",
-    "start:build": "npx tsc && dotenvx run -- node ./dist/main.js",
+    "dev": "dotenvx run -- nodemon ./src/main.ts",
+    "build": "tsc -p tsconfig.build.json && dotenvx run -- node ./dist/main.js",
     "prepare": "husky",
-    "test:pre-commit": "lint-staged",
-    "test:all": "jest --silent",
-    "test:jest": "jest -o --silent",
-    "test:prepush": "jest --bail --silent",
-    "test:ci": "npm run test:all -- --coverage --silent",
+    "test:unit": "vitest -c ./vitest.config.ts",
+    "test:prepush": "vitest run --silent=passed-only -c ./vitest.config.ts",
+    "lint:pre-commit": "lint-staged",
     "fix:lint": "eslint --fix"
   },
   "keywords": [],
@@ -41,12 +39,13 @@
     "@types/lint-staged": "^13.3.0",
     "eslint": "^9.23.0",
     "husky": "^9.1.7",
-    "jest": "^29.7.0",
     "lint-staged": "^15.5.0",
     "nodemon": "^3.1.10",
     "prisma": "^6.8.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.28.0"
+    "typescript-eslint": "^8.28.0",
+    "vitest": "^3.2.4",
+    "vitest-mock-extended": "^3.1.0"
   }
 }
