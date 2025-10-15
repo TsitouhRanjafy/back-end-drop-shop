@@ -1,6 +1,4 @@
-import { JwtPayload } from "jsonwebtoken";
-import IUser from "../../../domain/entities/user.interface";
-import { ITokenService } from "../../../domain";
+import { ITokenDecoded, ITokenService } from "../../../domain";
 
 
 class AuthUserUsecase {
@@ -8,11 +6,11 @@ class AuthUserUsecase {
         private tokenService: ITokenService
     ){}
 
-    execute(token: string): Pick<IUser,"id" | "email" | "role"> | null{
-        const isVerified: JwtPayload | string | null = this.tokenService.verify(token);
+    execute(token: string): ITokenDecoded | null{
+        const isVerified: ITokenDecoded | null = this.tokenService.verify(token);
         
         if (!isVerified) return null;
-        const user: Pick<IUser,"id" | "email" | "role"> = isVerified as Pick<IUser,"id" | "email" | "role">
+        const user: ITokenDecoded = isVerified;
         return {
             id: user.id,
             role: user.role,
