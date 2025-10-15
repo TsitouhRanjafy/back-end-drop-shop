@@ -2,7 +2,7 @@ import { Request } from "express";
 import { StatusCodes } from "http-status-codes";
 
 import { IComment, IHttpResponse } from "../../../domain";
-import { ControllerError } from "../../error/controllers.error";
+import { ControllerError } from "../../../domain/error/controllers.error";
 import { CommentPostUsecase } from "../../../usecases";
 
 

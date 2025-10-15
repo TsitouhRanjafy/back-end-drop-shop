@@ -12,7 +12,7 @@ import {
     SaveReactionRepository, 
     SaveUserReposiroty, 
     TokenService, 
-    TransformService 
+    FormaterService
 } from "../infrastructure";
 
 import AuthUserController from "../controllers/user/auth/auth-user.controller";
@@ -49,7 +49,7 @@ const router = Router();
 // service
 const tokenService = new TokenService();
 const hashageService = new HashageService();
-const transformService = new TransformService();
+const transformService = new FormaterService();
 
 // Repository
 const loadUserRepository = new LoadUserRepository();

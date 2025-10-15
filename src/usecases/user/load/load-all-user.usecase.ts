@@ -1,10 +1,10 @@
 import { Role } from "@prisma/client";
-import { LoadUserRepository } from "../../../infrastructure";
 import IUser from "../../../domain/entities/user.interface";
+import { ILoadUserRepository } from "../../../domain";
 
 export default class LoadAllUserUsecase {
     constructor(
-        private loadUserRepositorie: LoadUserRepository
+        private loadUserRepositorie: ILoadUserRepository
     ){}
 
     async exec(role: Role,skip: number,take: number) {

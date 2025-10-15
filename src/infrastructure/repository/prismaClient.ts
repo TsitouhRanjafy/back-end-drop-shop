@@ -3,4 +3,6 @@ import { withAccelerate } from "@prisma/extension-accelerate";
 
 const prisma = new PrismaClient().$extends(withAccelerate());
 
+export type IPrismaClient = typeof prisma;
+
 export default prisma;

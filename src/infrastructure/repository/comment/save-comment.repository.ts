@@ -1,5 +1,5 @@
 import { IComment, ISaveCommentRepository } from "../../../domain";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class SaveCommentRepository implements ISaveCommentRepository {
@@ -9,7 +9,7 @@ export default class SaveCommentRepository implements ISaveCommentRepository {
             const comment: IComment | null = await prisma.comment.create({data: newComment})
             return comment;
         } catch (error) {
-            throw new DataBaseAccessError("addComment",error);
+            throw new RepositoryError(error, "addComment");
         }
     }
 }

@@ -1,12 +1,12 @@
 import { Role } from "@prisma/client";
-import { HashageService, LoadUserRepository, TokenService } from "../../../infrastructure";
+import { IHashageService, ILoadUserRepository, ITokenService } from "../../../domain";
 
 
 class LoginUserUseCase {
     constructor(
-        private tokenService: TokenService,
-        private hashageService: HashageService,
-        private loadUserRepository: LoadUserRepository
+        private tokenService: ITokenService,
+        private hashageService: IHashageService,
+        private loadUserRepository: ILoadUserRepository
     ){}
 
     async execute(email: string,password: string,role: Role): Promise<{id: number,token: string} | null> {

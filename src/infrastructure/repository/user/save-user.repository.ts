@@ -1,19 +1,24 @@
 import { ISaveUserRepository, IUser } from "../../../domain";
-import { DataBaseAccessError } from "../../error/repositories.error";
-import prisma from "../prismaClient";
+import { RepositoryError } from "../../../domain/error/repositories.error";
+import prisma, { IPrismaClient }  from "../prismaClient";
 
-class SaveUserReposiroty implements ISaveUserRepository {
+class SaveUserRepository implements ISaveUserRepository {
+    private prismaClient: IPrismaClient;
 
-    async sinup(user: Omit<IUser,"id">): Promise<IUser> {
+    constructor(prismaClient: IPrismaClient = prisma) {
+        this.prismaClient = prismaClient;
+    }
+
+    async signup(user: Omit<IUser,"id">): Promise<IUser> {
         try {
-            const newUser: IUser = await prisma.user.create({
+            const newUser: IUser = await this.prismaClient.user.create({
                 data: user
             })
             return newUser;
         } catch (error) {
-            throw new DataBaseAccessError("signup",error);
+            throw new RepositoryError(error, "signup")
         }
     }
 }
 
-export default SaveUserReposiroty
+export default SaveUserRepository;

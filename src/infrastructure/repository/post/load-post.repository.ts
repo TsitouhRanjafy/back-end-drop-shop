@@ -1,5 +1,5 @@
 import { ILoadPostRepository, IPost, IReaction } from "../../../domain";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class LoadPostRepository implements ILoadPostRepository {
@@ -13,7 +13,7 @@ export default class LoadPostRepository implements ILoadPostRepository {
             });
             return posts;
         } catch (error) {
-            throw new DataBaseAccessError("getPostByUserId",error);
+            throw new RepositoryError(error, "getPostByUserId");
         }
     }
 
@@ -42,7 +42,7 @@ export default class LoadPostRepository implements ILoadPostRepository {
             })
             return post;
         } catch (error) {
-            throw new DataBaseAccessError("getPostByCountryUser",error);
+            throw new RepositoryError(error, "getPostByCountryUser");
         }
     }
 
@@ -51,7 +51,7 @@ export default class LoadPostRepository implements ILoadPostRepository {
             const post: IPost | null = await prisma.post.findUnique({where: {id: postId }})
             return post;
         } catch (error) {
-            throw new DataBaseAccessError("getPostById",error);
+            throw new RepositoryError(error, "getPostById");
         }
     }
 
@@ -80,7 +80,7 @@ export default class LoadPostRepository implements ILoadPostRepository {
             });
             return posts;
         } catch (error) {
-            throw new DataBaseAccessError("LoadPostRepository",error);
+            throw new RepositoryError(error, "LoadPostRepository");
         }
     }
 }

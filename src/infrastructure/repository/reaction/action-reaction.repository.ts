@@ -1,5 +1,5 @@
 import { IActionReactionRespository } from "../../../domain";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class ActionReactionRepository implements IActionReactionRespository {
@@ -10,7 +10,7 @@ export default class ActionReactionRepository implements IActionReactionResposit
                 where: { id: reactionId }
             })
         } catch (error) {
-            throw new DataBaseAccessError("deleteReactionByReactionId",error);
+            throw new RepositoryError(error, "deleteReactionByReactionId");
         }
     }
 }

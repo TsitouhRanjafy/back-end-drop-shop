@@ -9,7 +9,7 @@ import { IPost } from "./entities/post.interface";
 import { IReaction } from "./entities/reaction.interface";
 import { IComment } from "./entities/comment.interface";
 import { ITokenDecoded } from "./entities/custom.interface";
-import { ITransformService } from "./services/transform-service.interface";
+import { IFormaterService } from "./services/formater-service.interface";
 
 // Interface Repository
 // import { ILoadAdminRepository, ISaveAdminRepository } from "./repositories/admin/admin-repository.interface";
@@ -21,6 +21,7 @@ import { ILoadReactionRepository } from "./repositories/reaction/load-reaction-r
 import { ISaveReactionRepository } from "./repositories/reaction/save-reaction-repository.interface";
 import { IActionReactionRespository } from "./repositories/reaction/action-reaction-repository.interface";
 import { ISaveCommentRepository } from "./repositories/comment/save-comment-repository.interface";
+import { ILoadCommentRepository } from "./repositories/comment/load-comment-repository.interface";
 
 
 export {
@@ -30,7 +31,7 @@ export {
     ITokenService,
     IHashageService,
     IHttpResponse,
-    ITransformService,
+    IFormaterService,
     
     IPost,
     IReaction,
@@ -45,5 +46,5 @@ export {
     ISaveReactionRepository,
     IActionReactionRespository,
     ISaveCommentRepository,
-
+    ILoadCommentRepository
 }

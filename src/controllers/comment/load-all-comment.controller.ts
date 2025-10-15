@@ -1,7 +1,7 @@
 import { Request } from "express";
 
 import { IComment, IHttpResponse } from "../../domain";
-import { ControllerError } from "../error/controllers.error";
+import { ControllerError } from "../../domain/error/controllers.error";
 import { StatusCodes } from "http-status-codes";
 import { LoadAllCommentUsecase } from "../../usecases";
 
