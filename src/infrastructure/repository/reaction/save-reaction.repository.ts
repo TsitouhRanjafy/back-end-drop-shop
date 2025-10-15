@@ -1,5 +1,5 @@
 import { IReaction, ISaveReactionRepository } from "../../../domain";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class SaveReactionRepository implements ISaveReactionRepository {
@@ -10,7 +10,7 @@ export default class SaveReactionRepository implements ISaveReactionRepository {
                 data: reaction  
             })
         } catch (error) {
-            throw new DataBaseAccessError("addOrDeleteReaction",error);
+            throw new RepositoryError(error, "addOrDeleteReaction");
         }
     }
 
@@ -19,7 +19,7 @@ export default class SaveReactionRepository implements ISaveReactionRepository {
         try {
             await prisma.reaction.delete({where: {id: reactionId}});
         } catch (error) {
-            throw new DataBaseAccessError("deleteReaction",error);
+            throw new RepositoryError(error, "deleteReaction");
         }
     }
     

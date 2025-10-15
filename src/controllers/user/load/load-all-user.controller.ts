@@ -2,7 +2,7 @@ import { Request } from "express";
 import { IHttpResponse, IUser } from "../../../domain";
 import { Role } from "@prisma/client";
 import { StatusCodes } from "http-status-codes";
-import { ControllerError } from "../../error/controllers.error";
+import { ControllerError } from "../../../domain/error/controllers.error";
 import { LoadAllUserUsecase } from "../../../usecases";
 
 export default class LoadAllUserController {

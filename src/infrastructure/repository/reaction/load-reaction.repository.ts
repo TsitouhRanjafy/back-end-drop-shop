@@ -1,6 +1,6 @@
 import { ILoadReactionRepository, IReaction } from "../../../domain";
 import prisma from "../prismaClient";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 
 export default class LoadReactionRepository implements ILoadReactionRepository {
 
@@ -12,7 +12,7 @@ export default class LoadReactionRepository implements ILoadReactionRepository {
             })
             return reaction;
         } catch (error) {
-            throw new DataBaseAccessError("getReactionByReaction",error);
+            throw new RepositoryError(error, "getReactionByReaction");
         }
     }
 
@@ -23,7 +23,7 @@ export default class LoadReactionRepository implements ILoadReactionRepository {
             })
             return reactions;
         } catch (error) {
-            throw new DataBaseAccessError("getReactionByPostId",error);
+            throw new RepositoryError(error, "getReactionByPostId");
         }
     }
     async getReactionByUserId(userId: number): Promise<IReaction[] | null> {
@@ -33,7 +33,7 @@ export default class LoadReactionRepository implements ILoadReactionRepository {
             })
             return reactions;
         } catch (error) {
-            throw new DataBaseAccessError("getReactionByUserId",error);
+            throw new RepositoryError(error, "getReactionByUserId");
         }
     }
 }

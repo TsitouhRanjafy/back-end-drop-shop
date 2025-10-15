@@ -1,5 +1,5 @@
 import { ISaveUserRepository, IUser } from "../../../domain";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 import prisma, { IPrismaClient }  from "../prismaClient";
 
 class SaveUserRepository implements ISaveUserRepository {
@@ -16,7 +16,7 @@ class SaveUserRepository implements ISaveUserRepository {
             })
             return newUser;
         } catch (error) {
-            throw new DataBaseAccessError("DatabaseAccesError", error);
+            throw new RepositoryError(error, "signup")
         }
     }
 }

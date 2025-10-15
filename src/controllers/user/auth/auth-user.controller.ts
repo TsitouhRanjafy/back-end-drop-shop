@@ -2,7 +2,7 @@ import { Request } from "express"
 import { StatusCodes } from "http-status-codes";
 
 import { IHttpResponse, ITokenDecoded } from "../../../domain";
-import { ControllerError } from "../../error/controllers.error";
+import { ControllerError } from "../../../domain/error/controllers.error";
 import { AuthUserUsecase } from "../../../usecases";
 
 

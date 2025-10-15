@@ -1,7 +1,7 @@
 import { Role } from "@prisma/client";
 import { IUser, ILoadUserRepository } from "../../../domain";
 import prisma, { IPrismaClient } from "../prismaClient";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 
 class LoadUserRepository implements ILoadUserRepository {
     private prismaClient: IPrismaClient;
@@ -21,7 +21,7 @@ class LoadUserRepository implements ILoadUserRepository {
 
             return user;
         } catch (error) {
-            throw new DataBaseAccessError("getUserByEmail",error);
+            throw new RepositoryError(error, "getUserByEmail");
         }
     }
 
@@ -42,7 +42,7 @@ class LoadUserRepository implements ILoadUserRepository {
             })
             return users;
         } catch (error) {
-            throw new DataBaseAccessError("getAllUser",error);
+            throw new RepositoryError(error, "getAllUser")
         }
     }
 
@@ -58,7 +58,7 @@ class LoadUserRepository implements ILoadUserRepository {
             })
             return user;
         } catch (error) {
-            throw new DataBaseAccessError("getUserByEmailAndRole",error);
+            throw new RepositoryError(error, "getUserByEmailAndRole")
         }
     }
 
@@ -72,7 +72,7 @@ class LoadUserRepository implements ILoadUserRepository {
             })
             return user;
         } catch (error) {
-            throw new DataBaseAccessError("getUserById",error);
+            throw new RepositoryError(error, "getUserById")
         }
     }
 }

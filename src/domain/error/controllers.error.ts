@@ -1,4 +1,4 @@
-import { DataBaseAccessError } from "../../infrastructure/error/repositories.error";
+import { RepositoryError } from "./repositories.error";
 
 export class ControllerError extends Error {
     originalError: unknown;
@@ -9,7 +9,7 @@ export class ControllerError extends Error {
         this.originalError = originalError
 
         if (Error.captureStackTrace) {
-            Error.captureStackTrace(this,DataBaseAccessError);
+            Error.captureStackTrace(this,RepositoryError);
         }
     }
 }

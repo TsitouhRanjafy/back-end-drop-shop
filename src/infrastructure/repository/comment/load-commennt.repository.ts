@@ -1,6 +1,6 @@
 import { IComment } from "../../../domain";
 import { ILoadCommentRepository } from "../../../domain/repositories/comment/load-comment-repository.interface";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class LoadCommentRepository implements ILoadCommentRepository {
@@ -48,7 +48,7 @@ export default class LoadCommentRepository implements ILoadCommentRepository {
             })
             return comments;
         } catch (error) {
-            throw new DataBaseAccessError("getCommentForAPost",error);
+            throw new RepositoryError(error, "getCommentForAPost");
         }
     }
 }

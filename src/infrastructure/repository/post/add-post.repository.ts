@@ -1,5 +1,5 @@
 import { IPost, ISavePostRepository } from "../../../domain";
-import { DataBaseAccessError } from "../../error/repositories.error";
+import { RepositoryError } from "../../../domain/error/repositories.error";
 import prisma from "../prismaClient";
 
 export default class AddPostRepository implements ISavePostRepository {
@@ -11,7 +11,7 @@ export default class AddPostRepository implements ISavePostRepository {
             })
             return savedPost;
         } catch (error) {
-            throw new DataBaseAccessError("AddPostRepository",error);
+            throw new RepositoryError(error, "AddPostRepository");
         }
     }
 }

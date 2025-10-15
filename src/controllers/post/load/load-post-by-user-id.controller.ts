@@ -1,7 +1,7 @@
 import { Request } from "express";
 import { IHttpResponse, IReaction } from "../../../domain";
 import { StatusCodes } from "http-status-codes";
-import { ControllerError } from "../../error/controllers.error";
+import { ControllerError } from "../../../domain/error/controllers.error";
 import { LoadPostByUserIdUsecase } from "../../../usecases";
 
 export default class LoadPostByUserIdController {
