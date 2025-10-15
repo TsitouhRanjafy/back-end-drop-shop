@@ -1,7 +1,7 @@
 import { Request } from "express"
 import { StatusCodes } from "http-status-codes";
 
-import { IHttpResponse, IUser } from "../../../domain";
+import { IHttpResponse, ITokenDecoded } from "../../../domain";
 import { ControllerError } from "../../error/controllers.error";
 import { AuthUserUsecase } from "../../../usecases";
 
@@ -9,12 +9,17 @@ import { AuthUserUsecase } from "../../../usecases";
 class AuthUserController {
     constructor(private authUserUsecase: AuthUserUsecase){}
 
-    handle(req: Request): IHttpResponse<Pick<IUser,"id" | "email" | "role"> | {message: string}>{
+    handle(req: Request): IHttpResponse<ITokenDecoded | {message: string}>{
         const token: string = req.cookies.TOKEN_DROP_APP as string;
         
         try {
-            const usecaseResponse: Pick<IUser,"id" | "email" | "role"> | null= this.authUserUsecase.execute(token);
-            if (!usecaseResponse) return {body: {message: "unauthorized token"},statusCode: StatusCodes.UNAUTHORIZED};
+            const usecaseResponse: ITokenDecoded | null = this.authUserUsecase.execute(token);
+            if (!usecaseResponse) return {
+                body: {
+                    message: "unauthorized token"
+                },
+                statusCode: StatusCodes.UNAUTHORIZED
+            };
             return {
                 body: usecaseResponse,
                 statusCode: StatusCodes.OK
