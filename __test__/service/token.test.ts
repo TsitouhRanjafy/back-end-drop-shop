@@ -1,5 +1,5 @@
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { ITokenService, IUser } from "../../src/domain";
+import { ITokenDecoded, ITokenService, IUser } from "../../src/domain";
 import { TokenService } from "../../src/infrastructure";
 import { Role } from "@prisma/client";
 
@@ -22,11 +22,10 @@ describe('token-service', () => {
     })
 
     it('should generate a token with the correct user', () => {
-        const token = tokenService.generer(mockUser);
-        expect(token).not.toBeNull();
+        const token: string = tokenService.generer(mockUser);
         expect(token.length).toBeGreaterThan(15)
 
-        const userVerified = tokenService.verify(token);
+        const userVerified: ITokenDecoded | null = tokenService.verify(token);
         expect(userVerified).not.toBeNull();
         expect(userVerified.email).toEqual(mockUser.email);
         expect(userVerified.id).toEqual(mockUser.id);
