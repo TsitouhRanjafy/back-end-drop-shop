@@ -5,7 +5,7 @@ import { ISaveUserRepository, IUser } from '../../../src/domain';
 import { Role } from '@prisma/client';
 
 
-describe('user.repository', () => { 
+describe('save-user-repository', () => { 
     let saveUserRepository: ISaveUserRepository;
 
     beforeEach(() => {
@@ -13,30 +13,28 @@ describe('user.repository', () => {
         saveUserRepository = new SaveUserRepository(prismaMock);
     })
 
-    describe('save user', () => {
-        it('should create and return a new user', async () => {
-            const mockUser: Omit<IUser,"id"> = {
-                firstname: 'firstnametest',
-                lastname: 'lastnametest',
-                email: 'emailtest',
-                password: 'passwordtest',
-                tel: 'teltest',
-                region: 'regiontest',
-                pays: 'payatest',
-                role: Role.SELLER,
-                product_preference: null,
-                adress: null,
-                profile_url: null,
-                code_postal: null
-            }
-            const expectUser: IUser = { id: 1, ...mockUser };
+    it('should create and return a new user', async () => {
+        const mockUser: Omit<IUser,"id"> = {
+            firstname: 'firstnametest',
+            lastname: 'lastnametest',
+            email: 'emailtest',
+            password: 'passwordtest',
+            tel: 'teltest',
+            region: 'regiontest',
+            pays: 'payatest',
+            role: Role.SELLER,
+            product_preference: null,
+            adress: null,
+            profile_url: null,
+            code_postal: null
+        }
+        const expectUser: IUser = { id: 1, ...mockUser };
 
-            prismaMock.user.create.mockResolvedValue(expectUser);
-            
-            const result = await saveUserRepository.signup(mockUser);
-            
-            expect(prismaMock.user.create).toBeCalledWith({ data: mockUser })
-            expect(result).toEqual(expectUser);            
-        })
+        prismaMock.user.create.mockResolvedValue(expectUser);
+        
+        const result = await saveUserRepository.signup(mockUser);
+        
+        expect(prismaMock.user.create).toBeCalledWith({ data: mockUser })
+        expect(result).toEqual(expectUser);            
     })
  })
