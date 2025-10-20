@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "dev": "dotenvx run -- nodemon ./src/main.ts",
-    "build": "tsc -p tsconfig.build.json && dotenvx run -- node ./dist/main.js",
+    "start:dev": "dotenvx run --env-file=.env.dev -- nodemon ./src/main.ts",
+    "start:prod":"tsc -p tsconfig.build.json && dotenvx run --env-file=.env.prod -- node ./dist/main.js",
+    "build": "tsc -p tsconfig.build.json",
     "prepare": "husky",
     "test:unit": "vitest -c ./vitest.config.ts",
     "test:prepush": "vitest run --silent=passed-only -c ./vitest.config.ts",
