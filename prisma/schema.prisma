@@ -1,11 +1,10 @@
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 generator client {
     provider = "prisma-client-js"
-    previewFeatures = ["relationJoins","fullTextSearchPostgres"]
 }
 
 model User {
