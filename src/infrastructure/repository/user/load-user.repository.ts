@@ -27,7 +27,7 @@ class LoadUserRepository implements ILoadUserRepository {
 
     async getAllUserByRole(role: Role,skip: number,take: number): Promise<Pick<IUser,"id" | "firstname" | "lastname" | "region" | "pays" | "profile_url" >[]> {
         try {
-            const users: Pick<IUser,"id" | "firstname" | "lastname" | "region" | "pays" | "profile_url" >[] = await this.prismaClient.user.findMany({ 
+            const users: Pick<IUser,"id" | "firstname" | "lastname" | "region" | "pays" | "profile_url" >[] = await prisma.user.findMany({ 
                 where: { role: role },
                 select: {
                     id: true,
