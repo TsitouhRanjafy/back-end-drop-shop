@@ -3,6 +3,11 @@ FROM node:lts-alpine
 WORKDIR /app
 
 COPY package*.json .
+COPY prisma .
+
+RUN curl -sfS https://dotenvx.sh | sh 
+RUN npm ci
+RUN npx prisma generate
 
 EXPOSE 8080
 

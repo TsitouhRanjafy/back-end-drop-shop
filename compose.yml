@@ -3,23 +3,57 @@
 # node:lts-alpine \
 # sh -c "npm ci && npx prisma generate && npm run start:dev"
 
+
 services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_drop_shop
+    hostname: mysqlhost
+    ports:
+      - '127.0.0.1:4000:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root            
+      MYSQL_DATABASE: drop_shop            
+      MYSQL_USER: tsitohaina             
+      MYSQL_PASSWORD: azerty#        
+    volumes: 
+      - mysql-data:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+     - app-network
+    healthcheck:                        
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      start_period: 60s
+      interval: 20s
+      timeout: 5s
+      retries: 5
   backend: 
     build: 
-      context: ./backend
-      dockerfile: Dockerfile
+      context: ./
+      dockerfile: Dockerfile.dev
+    container_name: backend_drop_shop
     ports:
       - '127.0.0.1:8080:8080'
     volumes:
-      - ./backend:/app # Bind mount pour hot reload (src: "$(pwd)", target: /app)
+      - ./:/app  
       - /app/node_modules
-    working_dir: /app  # -w /app
-    command: sh -c "npm ci && npx prisma generate && npm run start:dev"
-    stdin_open: true   # garde le conteneur interactif en dev
+    working_dir: /app 
+    command: sh -c "npm run start:dev"
+    stdin_open: true   
+    tty: true
     environment: 
       - NODE_ENV=development
-    
-  # db:
-  #   image: mysql:9.3
+      - DATABASE_URL=mysql://tsitohaina:azerty%23@mysqlhost:3306/drop_shop
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network    
+volumes:
+  mysql-data:
+networks:
+  app-network:
 
+
+  
   
