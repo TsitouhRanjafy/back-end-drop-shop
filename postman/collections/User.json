@@ -868,15 +868,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/users/SELLER/0/10",
+					"raw": "{{baseUrl}}/users/{{role}}/{{skip}}/{{take}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"users",
-						"SELLER",
-						"0",
-						"10"
+						"{{role}}",
+						"{{skip}}",
+						"{{take}}"
 					]
 				}
 			},
@@ -962,7 +962,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/user?id_user=6",
+					"raw": "{{baseUrl}}/user?id_user=2",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -972,7 +972,7 @@
 					"query": [
 						{
 							"key": "id_user",
-							"value": "6",
+							"value": "2",
 							"description": "The id of user"
 						}
 					]
@@ -1135,27 +1135,27 @@
 	],
 	"variable": [
 		{
-			"id": "e5756305-06b7-4cd5-ae87-04f2d55d347c",
+			"id": "25e243db-f523-48a2-b7f8-09545afc4a19",
 			"key": "id",
 			"value": "1"
 		},
 		{
-			"id": "7d7df11a-287b-4499-9760-dd21ebe5a5ba",
+			"id": "c6658266-f09b-4b53-b2d2-f7d72135a754",
 			"key": "base_url",
 			"value": "https://postman-rest-api-learner.glitch.me/"
 		},
 		{
-			"id": "1efc0c2c-4256-4955-97d1-f3d1573ae927",
+			"id": "ee12f448-6f14-4cc8-872b-f8c81589c2a8",
 			"key": "role",
 			"value": ""
 		},
 		{
-			"id": "92543090-b27b-4a05-a5a7-11a15f9bbf9b",
+			"id": "e3fb834e-e9a9-4eb1-b184-1d7d3cb4bd02",
 			"key": "skip",
 			"value": ""
 		},
 		{
-			"id": "efd2b2ae-efca-49c6-85fa-05b9740afc32",
+			"id": "ecb8931a-ca3d-467c-9558-668682c468b2",
 			"key": "take",
 			"value": ""
 		}
