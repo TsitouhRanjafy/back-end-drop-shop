@@ -1,0 +1,1163 @@
+{
+	"info": {
+		"_postman_id": "fa4a9932-80c3-478d-a1d1-7397e1700597",
+		"name": "User",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "43884818-fa4a9932-80c3-478d-a1d1-7397e1700597"
+	},
+	"item": [
+		{
+			"name": "get authentificated user",
+			"id": "9eaacd03-ae9b-4419-bf9c-ab442fede564",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/auth",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b2faf6c7-a191-4e79-bdbe-c10a49db28d5",
+					"name": "get authentificated user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/auth",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"36-u6prxPnwOVVOQAMxJlmUO8tyETg\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:43:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"role\": \"BUYER\",\n    \"email\": \"rakotonary@gmail.com\"\n}"
+				},
+				{
+					"id": "ab39f38a-4c4e-4de9-8ee1-e86737441cf5",
+					"name": "get authentificated user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/auth",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"20-56E35SXr+MdIP9GzF0YFy/V1/xU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:43:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"unauthorized token\"\n}"
+				}
+			]
+		},
+		{
+			"name": "sign up acheteur",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdb2a187-29a9-4358-a6a8-236f2adfb58e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"if (pm.response.code === 200 || pm.response.code === 201 || pm.response.code === 202 || pm.response.code === 204) {",
+							"    pm.globals.set(\"token_drop_app\", pm.response.json().token);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "9b6b19a1-009c-44cd-b347-79052052a61b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"RAKOTO\", \n    \"lastname\": \"Nary\", \n    \"email\":\"rakotonary@gmail.com\", \n    \"password\": \"aZerty&123#\", \n    \"tel\": \"+261325000243\", \n    \"pays\":\"Madagascar\", \n    \"role\": \"BUYER\", \n    \"product_preference\": \"aqsdxvrtEpM4Ru&\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/signup",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"signup"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"id": "a738d617-15b3-4956-9cd4-ee959d2de425",
+					"name": "sign up acheteur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"RAKOTO\", \n    \"lastname\": \"Nary\", \n    \"email\":\"rakotonary@gmail.com\", \n    \"password\": \"aZerty&123#\", \n    \"tel\": \"+261325000243\", \n    \"pays\":\"Madagascar\", \n    \"role\": \"BUYER\", \n    \"product_preference\": \"aqsdxvrtEpM4Ru&\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "TOKEN_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJyYWtvdG9uYXJ5QGdtYWlsLmNvbSIsInJvbGUiOiJCVVlFUiIsImlhdCI6MTc2MTA0Njc5OSwiZXhwIjoxODQ3NDQ2Nzk5fQ.4OILVSMUNI60CiKmbYG3QYQk6h5TLM83-YNKXshg1pU; Max-Age=86400; Path=/; Expires=Wed, 22 Oct 2025 11:39:59 GMT; HttpOnly; SameSite=Strict"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "218"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"da-VPsnmfWKcFAXVOzcYqKHXGCGSMY\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:39:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJyYWtvdG9uYXJ5QGdtYWlsLmNvbSIsInJvbGUiOiJCVVlFUiIsImlhdCI6MTc2MTA0Njc5OSwiZXhwIjoxODQ3NDQ2Nzk5fQ.4OILVSMUNI60CiKmbYG3QYQk6h5TLM83-YNKXshg1pU\"\n}"
+				},
+				{
+					"id": "8f320817-aa83-4a47-9210-423ef0d6e6cb",
+					"name": "sign up acheteur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"RAKOTO\", \n    \"lastname\": \"Nary\", \n    \"email\":\"rakotonary@gmail.com\", \n    \"password\": \"aZerty&123#\", \n    \"tel\": \"+261325000243\", \n    \"pays\":\"Madagascar\", \n    \"role\": \"BUYER\", \n    \"product_preference\": \"aqsdxvrtEpM4Ru&\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-VQ5K4nPublC1Arbe2YtLXJgaN0E\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:40:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"bad request\"\n}"
+				},
+				{
+					"id": "6c8fd9a7-03a6-47ce-b8c1-366679109ab5",
+					"name": "sign up acheteur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"RAKOTO\", \n    \"lastname\": \"Nary\", \n    \"email\":\"rakotonary@gmail.com\", \n    \"password\": \"aZerty&123#\", \n    \"tel\": \"+20243\", \n    \"pays\":\"Madagascar\", \n    \"role\": \"BUYER\", \n    \"product_preference\": \"aqsdxvrtEpM4Ru&\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-rj2g7FYlBx89D44JykeeF41/ed8\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:41:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid tel\"\n}"
+				}
+			]
+		},
+		{
+			"name": "signup vendeur",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc3d6490-6658-4a44-9562-9561c828fe1e",
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							"",
+							"if (pm.response.json().token) {",
+							"    pm.globals.set(\"token_drop_app\", pm.response.json().token);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "aa8f0434-8b2c-4a1f-8ae1-f22c394d6ced",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Maeva\", \n    \"lastname\": \"Miranda\", \n    \"email\":\"maeva@gmail.com\", \n    \"password\": \"aZerty#123\", \n    \"tel\": \"+261332034565\", \n    \"pays\":\"Madagascar\",\n    \"region\":\"Antananarivo\",    \n    \"role\": \"SELLER\", \n    \"product_preference\": \"aqsdxvrtEpM4Ru&\",\n    \"profile_url\": \"http://res.cloudinary.com/deekkdb0h/image/upload/v1752740366/djrewcvy6uzdh7qrnthh.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/signup",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"signup"
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"id": "4022bb4e-376e-4190-99af-c2f8dfa17204",
+					"name": "signup vendeur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Maeva\", \n    \"lastname\": \"Miranda\", \n    \"email\":\"maeva@gmail.com\", \n    \"password\": \"aZerty#123\", \n    \"tel\": \"+261332034565\", \n    \"pays\":\"Madagascar\",\n    \"region\":\"Antananarivo\",    \n    \"role\": \"SELLER\", \n    \"product_preference\": \"aqsdxvrtEpM4Ru&\",\n    \"profile_url\": \"http://res.cloudinary.com/deekkdb0h/image/upload/v1752740366/djrewcvy6uzdh7qrnthh.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "TOKEN_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYWV2YUBnbWFpbC5jb20iLCJyb2xlIjoiU0VMTEVSIiwiaWF0IjoxNzYxMDQ2MTA0LCJleHAiOjE4NDc0NDYxMDR9.C297M_DxrNQUY5OkYukFoqlfVfIYxs2MDy0zwTv9DpQ; Max-Age=86400; Path=/; Expires=Wed, 22 Oct 2025 11:28:24 GMT; HttpOnly; SameSite=Strict"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "212"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d4-558devk+5Ug+62WriEHJ1FKIPxE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:28:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYWV2YUBnbWFpbC5jb20iLCJyb2xlIjoiU0VMTEVSIiwiaWF0IjoxNzYxMDQ2MTA0LCJleHAiOjE4NDc0NDYxMDR9.C297M_DxrNQUY5OkYukFoqlfVfIYxs2MDy0zwTv9DpQ\"\n}"
+				},
+				{
+					"id": "1126c7d5-d38e-42cf-b198-51c84322103a",
+					"name": "signup vendeur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Maeva\", \n    \"lastname\": \"Miranda\", \n    \"email\":\"maeva@gmail.com\", \n    \"password\": \"aZerty#123\", \n    \"tel\": \"+261332034565\", \n    \"pays\":\"Madagascar\",\n    \"region\":\"Antananarivo\",    \n    \"role\": \"SELLER\", \n    \"product_preference\": \"aqsdxvrtEpM4Ru&\",\n    \"profile_url\": \"http://res.cloudinary.com/deekkdb0h/image/upload/v1752740366/djrewcvy6uzdh7qrnthh.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-VQ5K4nPublC1Arbe2YtLXJgaN0E\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:32:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"bad request\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login acheteur",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4eeb9674-df8e-4009-a1ca-d6c0ddea47f1",
+						"exec": [
+							"if (pm.response.code === 200 || pm.response.code === 202 || pm.response.code === 201) {",
+							"    pm.globals.set(\"token_drop_app\", pm.response.json().token);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "da8aef1b-2b20-4bef-a4cb-b280e71667af",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"rakotonary@gmail.com\", \n    \"password\": \"aZerty&123#\",\n    \"role\": \"BUYER\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "cc2aede4-7db2-4389-a100-ebcd7e89824e",
+					"name": "login acheteur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"mario@gmail.com\", \n    \"password\": \"aZerty#123\",\n    \"role\": \"BUYER\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-MzZHBeQUXOlT3agGHY2uE7J05rU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:42:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"invalid credentials\"\n}"
+				},
+				{
+					"id": "384ffcb1-441f-4d07-9d82-f7c5494e1481",
+					"name": "login acheteur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"rakotonary@gmail.com\", \n    \"password\": \"aZerty&123#\",\n    \"role\": \"BUYER\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "TOKEN_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJyYWtvdG9uYXJ5QGdtYWlsLmNvbSIsInJvbGUiOiJCVVlFUiIsImlhdCI6MTc2MTA0Njk4NSwiZXhwIjoxODQ3NDQ2OTg1fQ.BEr2RD4PvxGTEBRZ5jr8-CfkHVhB2yb2jNbOoOOWUzk; Max-Age=86400; Path=/; Expires=Wed, 22 Oct 2025 11:43:05 GMT; HttpOnly; SameSite=Strict"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "218"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"da-RCkWEF68wj5rehdTEnlXmpL51DI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:43:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJyYWtvdG9uYXJ5QGdtYWlsLmNvbSIsInJvbGUiOiJCVVlFUiIsImlhdCI6MTc2MTA0Njk4NSwiZXhwIjoxODQ3NDQ2OTg1fQ.BEr2RD4PvxGTEBRZ5jr8-CfkHVhB2yb2jNbOoOOWUzk\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login vendeur",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a7292c93-75cc-4a62-a55f-bbc2740033a7",
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							"",
+							"if (pm.response.code === 200 || pm.response.code === 202 || pm.response.code === 201) {",
+							"    pm.globals.set(\"token_drop_app\", pm.response.json().token);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "3ae8f866-0deb-42dd-aacc-56711969b444",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"maeva@gmail.com\", \n    \"password\": \"aZerty#123\", \n    \"role\": \"SELLER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "get all user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "038a9ba7-b63d-42e9-8379-458cbf7334c4",
+						"exec": [
+							"var template = `",
+							"<style type=\"text/css\">",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+							"    .tftable tr {background-color:#ffffff;}",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+							"    .tftable tr:hover {background-color:#e0ffff;}",
+							"</style>",
+							"",
+							"<table class=\"tftable\" border=\"1\">",
+							"    <tr>",
+							"        <th>ID</th>",
+							"        <th>First Name</th>",
+							"        <th>Last Name</th>",
+							"        <th>Region</th>",
+							"        <th>Country</th>",
+							"        <th>Profile URL</th>",
+							"    </tr>",
+							"    ",
+							"    {{#each response}}",
+							"        <tr>",
+							"            <td>{{id}}</td>",
+							"            <td>{{firstname}}</td>",
+							"            <td>{{lastname}}</td>",
+							"            <td>{{region}}</td>",
+							"            <td>{{pays}}</td>",
+							"            <td>{{profile_url}}</td>",
+							"        </tr>",
+							"    {{/each}}",
+							"</table>",
+							"`;",
+							"",
+							"function constructVisualizerPayload() {",
+							"    return { response: pm.response.json() };",
+							"}",
+							"",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "d9f91d3d-e509-4e25-9014-18218d71683d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{role}}/{{skip}}/{{take}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{role}}",
+						"{{skip}}",
+						"{{take}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b4ee2519-7e65-4371-9188-e46c5ad019f9",
+					"name": "get all user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{role}}/{{skip}}/{{take}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{role}}",
+								"{{skip}}",
+								"{{take}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "232"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e8-mZiDwwDOufqmsh5wBe5QIXprBh0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:51:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"firstname\": \"Maeva\",\n        \"lastname\": \"Miranda\",\n        \"region\": \"Antananarivo\",\n        \"pays\": \"Madagascar\",\n        \"profile_url\": \"http:&#x2F;&#x2F;res.cloudinary.com&#x2F;deekkdb0h&#x2F;image&#x2F;upload&#x2F;v1752740366&#x2F;djrewcvy6uzdh7qrnthh.jpg\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get user by id",
+			"id": "1de06f9d-7411-439d-8095-71bd283d48c4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_drop_app}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/user?id_user=2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "2",
+							"description": "The id of user"
+						}
+					]
+				},
+				"description": "The endpoint retrieves user information based on the provided user ID.\n\nThe response returned is a JSON object with the following schema:  \nPassword included if the provided user ID equal current user ID\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"number\"\n    },\n    \"firstname\": {\n      \"type\": \"string\"\n    },\n    \"lastname\": {\n      \"type\": \"string\"\n    },\n    \"email\": {\n      \"type\": \"string\"\n    },\n    \"tel\": {\n      \"type\": \"string\"\n    },\n    \"region\": {\n      \"type\": \"string\"\n    },\n    \"pays\": {\n      \"type\": \"string\"\n    },\n    \"role\": {\n      \"type\": \"string\"\n    },\n    \"product_preference\": {\n      \"type\": \"string\"\n    },\n    \"profile_url\": {\n      \"type\": \"string\"\n    },\n    \"adress\": {\n      \"type\": [\"string\", \"null\"]\n    },\n    \"code_postal\": {\n      \"type\": [\"number\", \"null\"]\n    }\n  }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"id": "36c85f99-cc21-4918-8d73-156c378a9bf0",
+					"name": "get user by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user?id_user=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "1",
+									"description": "The id of user",
+									"uuid": "7bf58b30-3b6b-4e33-87e1-683735b4b76b"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "444"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1bc-nwuxbcMz/ngvm6TEFEL5h/t59uo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:34:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"firstname\": \"Maeva\",\n    \"lastname\": \"Miranda\",\n    \"email\": \"maeva@gmail.com\",\n    \"password\": \"$2b$10$4etQuSCyyaqDsDMCMIkfDOxTumoU7s3YT98msspwAlsrqsK4txEXu\",\n    \"tel\": \"+261332034565\",\n    \"region\": \"Antananarivo\",\n    \"pays\": \"Madagascar\",\n    \"role\": \"SELLER\",\n    \"product_preference\": \"aqsdxvrtEpM4Ru&amp;\",\n    \"profile_url\": \"http:&#x2F;&#x2F;res.cloudinary.com&#x2F;deekkdb0h&#x2F;image&#x2F;upload&#x2F;v1752740366&#x2F;djrewcvy6uzdh7qrnthh.jpg\",\n    \"adress\": null,\n    \"code_postal\": null\n}"
+				},
+				{
+					"id": "93f0f239-5c3f-45ec-bf41-9cd6c5d72c37",
+					"name": "get user by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user?id_user=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "2",
+									"description": "The id of user",
+									"uuid": "7bf58b30-3b6b-4e33-87e1-683735b4b76b"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b-yvcmI8Jqit1zxO55CGW1WI9j5GU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 11:34:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user not fund\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "5061016d-1782-4216-a1a2-4750f13b4957"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "50461af8-4e38-4625-a862-3ca67e860479"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "25e243db-f523-48a2-b7f8-09545afc4a19",
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"id": "c6658266-f09b-4b53-b2d2-f7d72135a754",
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		},
+		{
+			"id": "ee12f448-6f14-4cc8-872b-f8c81589c2a8",
+			"key": "role",
+			"value": ""
+		},
+		{
+			"id": "e3fb834e-e9a9-4eb1-b184-1d7d3cb4bd02",
+			"key": "skip",
+			"value": ""
+		},
+		{
+			"id": "ecb8931a-ca3d-467c-9558-668682c468b2",
+			"key": "take",
+			"value": ""
+		}
+	]
+}

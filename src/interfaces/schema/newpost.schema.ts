@@ -19,6 +19,10 @@ const newPostSchema = checkSchema({
         notEmpty: {
             errorMessage: "Description is required in body"
         },
+        isLength: {
+            options: { max: 190 },
+            errorMessage: "Description must be at most 190 characters"
+        },
         trim: true,
         escape: true
     },

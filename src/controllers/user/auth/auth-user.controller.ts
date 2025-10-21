@@ -10,7 +10,7 @@ class AuthUserController {
     constructor(private authUserUsecase: AuthUserUsecase){}
 
     handle(req: Request): IHttpResponse<ITokenDecoded | {message: string}>{
-        const token: string = req.cookies.TOKEN_DROP_APP as string;
+        const token: string = req.cookies.TOKEN_KEY as string;
         
         try {
             const usecaseResponse: ITokenDecoded | null = this.authUserUsecase.execute(token);
