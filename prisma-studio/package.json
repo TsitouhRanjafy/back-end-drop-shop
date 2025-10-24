@@ -1,0 +1,16 @@
+{
+  "name": "prisma-studio",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "prisma studio --port 5555 --browser none"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.8.0",
+    "prisma": "^6.8.0"
+  }
+}

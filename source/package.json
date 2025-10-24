@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "dotenvx run --env-file=.env.dev -- nodemon ./src/main.ts",
-    "start:prod":"tsc -p tsconfig.build.json && dotenvx run --env-file=.env.prod -- node ./dist/main.js",
+    "start:prod":"dotenvx run --env-file=.env.dev -- ts-node ./src/main.ts",
     "build": "tsc -p tsconfig.build.json",
     "prepare": "husky",
     "test:unit": "vitest -c ./vitest.config.ts",

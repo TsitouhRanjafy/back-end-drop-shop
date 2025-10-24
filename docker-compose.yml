@@ -29,16 +29,14 @@ services:
       retries: 5
   backend: 
     build: 
-      context: ./
-      dockerfile: Dockerfile.dev
+      context: .
+      dockerfile: docker/source.dockerfile
     container_name: backend_drop_shop
     ports:
       - '127.0.0.1:8080:8080'
     volumes:
-      - ./:/app  
+      - ./source:/app
       - /app/node_modules
-    working_dir: /app 
-    command: sh -c "npm run start:dev"
     stdin_open: true   
     tty: true
     environment: 
@@ -49,6 +47,22 @@ services:
         condition: service_healthy
     networks:
       - app-network    
+  prisma_studio:
+    build:
+      context: .
+      dockerfile: docker/prisma-sutdio.dockerfile
+    container_name: prisma_studio
+    ports:
+      - '127.0.0.1:5555:5555'
+    stdin_open: true   
+    tty: true
+    environment: 
+      - DATABASE_URL=mysql://tsitohaina:azerty%23@mysqlhost:3306/drop_shop
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network   
 volumes:
   mysql-data:
 networks:
