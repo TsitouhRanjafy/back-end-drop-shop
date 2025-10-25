@@ -9,6 +9,8 @@ id = 551949e9-7b6b-4eb5-ad9d-d9e457563533
 
 [config.relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"43884818-d496321d-0ec8-4117-b683-c08ff8ea6a94","path":"Admin.json","metaData":{}}
+files[] = {"id":"43884818-167a11fe-0b22-43af-a9c0-0933b8fe4101","path":"cloudinary.json","metaData":{}}
 files[] = {"id":"43884818-85e690f6-f3af-49f5-86cb-e068af129c3b","path":"Comment.json","metaData":{}}
 files[] = {"id":"43884818-9b68c454-213c-4a28-86ef-198956484ea5","path":"Post.json","metaData":{}}
 files[] = {"id":"43884818-fa4a9932-80c3-478d-a1d1-7397e1700597","path":"User.json","metaData":{}}
