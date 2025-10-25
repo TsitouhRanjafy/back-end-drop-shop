@@ -23,9 +23,10 @@ model User {
     code_postal             String?             
     reaction                Reaction[]
     posts                   Post[]
-    message                 Message[]
     command                 Command[]
     comment                 Comment[]
+    sentMessage             Message[]           @relation("MessageSender")
+    receivedMessage         Message[]           @relation("MessageReceiver")
 }
 
 model Admin {
@@ -38,19 +39,18 @@ model Admin {
     pays                    String              @db.VarChar(255)
     adress                  String              @db.VarChar(255)
     code_postal             String?
-    message                 Message[]
     deleted_post            DeletedPost[]
 }
 
 model Message {
     id                      Int                 @id @default(autoincrement())
-    id_admin                Int
-    id_user                 Int
-    content                 String              
+    id_expediteur           Int
+    id_receiveur            Int
+    content                 String              @db.Text
+    room_id                 String              @db.VarChar(255)
     sending_date            DateTime            @default(now())
-    sender_id               Int         
-    user                    User                @relation(fields: [id_user],references: [id])
-    admin                   Admin               @relation(fields: [id_admin],references: [id])
+    sender                  User                @relation("MessageSender",fields: [id_expediteur],references: [id])
+    receiver                User                @relation("MessageReceiver",fields: [id_receiveur],references: [id])
 }
 
 model Post {
