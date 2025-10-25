@@ -1115,47 +1115,42 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "07db0e85-d5a4-46e6-a9df-9095084ce04d",
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "5061016d-1782-4216-a1a2-4750f13b4957"
+				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
+				"id": "fc1e73ed-d244-4714-bbf7-d1d5fca266f3",
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "50461af8-4e38-4625-a862-3ca67e860479"
+				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "25e243db-f523-48a2-b7f8-09545afc4a19",
+			"id": "9d095178-d04f-497a-b7b5-94a263e9b623",
 			"key": "id",
 			"value": "1"
 		},
 		{
-			"id": "c6658266-f09b-4b53-b2d2-f7d72135a754",
-			"key": "base_url",
-			"value": "https://postman-rest-api-learner.glitch.me/"
-		},
-		{
-			"id": "ee12f448-6f14-4cc8-872b-f8c81589c2a8",
+			"id": "92b105a5-38f4-4796-a11c-31872b983f5f",
 			"key": "role",
 			"value": ""
 		},
 		{
-			"id": "e3fb834e-e9a9-4eb1-b184-1d7d3cb4bd02",
+			"id": "dc2e9ff0-937e-43fa-9d04-738d722bb662",
 			"key": "skip",
 			"value": ""
 		},
 		{
-			"id": "ecb8931a-ca3d-467c-9558-668682c468b2",
+			"id": "fce57880-b363-4d61-8dba-0b1ac48563dd",
 			"key": "take",
 			"value": ""
 		}
