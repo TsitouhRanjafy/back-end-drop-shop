@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "167a11fe-0b22-43af-a9c0-0933b8fe4101",
+		"name": "cloudinary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "43884818-167a11fe-0b22-43af-a9c0-0933b8fe4101"
+	},
+	"item": [
+		{
+			"name": "add new image",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "710a7e66-a8cf-4f27-a8f9-ab7cfb44e1a2",
+						"exec": [
+							"const crypto = pm.require('npm:crypto-js@4.2.0');",
+							"",
+							"const timestamp = Math.floor(Date.now() / 1000).toString();",
+							"const toSign = `timestamp=${timestamp}${pm.collectionVariables.get(\"api_secret_cloud\")}`",
+							"",
+							"const signature = crypto.SHA1(toSign).toString(crypto.enc.Hex);",
+							"",
+							"pm.collectionVariables.set(\"timestamp\",timestamp);",
+							"pm.collectionVariables.set(\"signature\",signature);",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {
+							"npm:crypto-js@4.2.0": {
+								"id": "npm:crypto-js@4.2.0"
+							}
+						}
+					}
+				}
+			],
+			"id": "28c5ff98-4970-4ed1-9ebb-f10c5f1763c7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"uuid": "3bc1d4c7-c29c-48ae-9066-326eb9ba0bff",
+							"src": "/home/ramiaranjafy/Images/linkedlist.png"
+						},
+						{
+							"key": "timestamp",
+							"value": "{{timestamp}}",
+							"type": "text",
+							"uuid": "ca031d10-4dbe-4d9e-8d9f-88d44e3885ef"
+						},
+						{
+							"key": "api_key",
+							"value": "815358881469799",
+							"type": "text",
+							"uuid": "40089699-bea5-4c52-af48-e6b33bbccfe7"
+						},
+						{
+							"key": "signature",
+							"value": "{{signature}}",
+							"type": "text",
+							"uuid": "992ddf36-ef67-4368-b37a-196314b12510"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{cloudinaryUrl}}/image/upload",
+					"host": [
+						"{{cloudinaryUrl}}"
+					],
+					"path": [
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "4e59411a-89fc-4a42-a915-28891aedfd8a",
+			"key": "timestamp",
+			"value": ""
+		},
+		{
+			"id": "8a825d8c-6668-417f-8d0c-af2d5c367f91",
+			"key": "signature",
+			"value": ""
+		},
+		{
+			"id": "682f51e9-a45a-4d8c-98b3-0707effe247c",
+			"key": "cloudinaryUrl",
+			"value": "https://api.cloudinary.com/v1_1/deekkdb0h",
+			"type": "default"
+		},
+		{
+			"id": "be150ab1-3585-44be-9f75-8cb089b773b2",
+			"key": "api_secret_cloud",
+			"value": "gJno6_b-Bjw2YJlZlCuYnHDBeKA",
+			"type": "default"
+		}
+	]
+}

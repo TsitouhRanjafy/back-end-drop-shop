@@ -1,0 +1,787 @@
+{
+	"info": {
+		"_postman_id": "9b68c454-213c-4a28-86ef-198956484ea5",
+		"name": "Post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "43884818-9b68c454-213c-4a28-86ef-198956484ea5"
+	},
+	"item": [
+		{
+			"name": "add new post",
+			"id": "05479ad7-cd52-4f2d-82c4-9d3250f75188",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_drop_app}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"ARTICLE\",\n    \"description\": \"Fitafiana ho an’ny vehivavy, Asehoy ny  hatsaran-tarehinao amin'ity akanjo manaraka ny bikan'ny vatana ity. Mifangaro tsara ny lamaody sy ny fahatoniana.\",\n    \"unit_price\": \"5\",\n    \"stock\":\"10\",\n    \"image_url\":\"http://res.cloudinary.com/deekkdb0h/image/upload/v1752731669/jlcrq1iosve8zimemghl.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/post/new",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"post",
+						"new"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "32ff3d15-7f67-4119-adb1-dbcdd70878f3",
+					"name": "add new post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"ARTICLE\",\n    \"description\": \"Fitafiana ho an’ny vehivavy (10) Asehoy ny  hatsaran-tarehinao amin'ity akanjo manaraka ny bikan'ny vatana ity. Mifangaro tsara ny lamaody sy ny fahatoniana. Noforonina hanasongadina anao isan'andro.\",\n    \"unit_price\": \"5\",\n    \"stock\":\"10\",\n    \"image_url\":\"http://res.cloudinary.com/deekkdb0h/image/upload/v1752731669/jlcrq1iosve8zimemghl.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post/new",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"new"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-8G+VDXz3le/6sGwmPhIwHwD+Qv0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:08:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Description must be at most 190 characters\"\n}"
+				},
+				{
+					"id": "aff493d3-f7ab-4134-bf76-be4c0573a95c",
+					"name": "add new post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Fitafiana ho an’ny vehivavy (10) Asehoy ny  hatsaran-tarehinao amin'ity akanjo manaraka ny bikan'ny vatana ity. Mifangaro tsara ny lamaody sy ny fahatoniana. Noforonina hanasongadina anao isan'andro.\",\n    \"unit_price\": \"5\",\n    \"stock\":\"10\",\n    \"image_url\":\"http://res.cloudinary.com/deekkdb0h/image/upload/v1752731669/jlcrq1iosve8zimemghl.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post/new",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"new"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3c-r9xCPjxtEielkVV0AH83q77/+xg\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:08:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Type must be either 'ARTICLE' or 'SIMPLE_POST'\"\n}"
+				}
+			]
+		},
+		{
+			"name": "comment a post",
+			"id": "5e675150-81eb-46c2-b2b1-215021f6d988",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_drop_app}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\":\"il y en a combien?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/post/comment/?id_post=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"post",
+						"comment",
+						""
+					],
+					"query": [
+						{
+							"key": "id_post",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "10a9f17f-1e59-4db8-9146-e9712ec5d3ef",
+					"name": "comment a post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"il y en a combien?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post/comment/?id_post=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"comment",
+								""
+							],
+							"query": [
+								{
+									"key": "id_post",
+									"value": "3",
+									"uuid": "675957fb-1283-4943-8722-7e811bb1810d"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-eynTOFHU8NRNHKrrVcLE7rIQSew\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:30:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"comment refused\"\n}"
+				},
+				{
+					"id": "95b5f103-fa9d-48d4-bc99-a9d721b18e41",
+					"name": "comment a post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"il y en a combien?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post/comment/?id_post=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"comment",
+								""
+							],
+							"query": [
+								{
+									"key": "id_post",
+									"value": "1",
+									"uuid": "6d309ef2-7f35-4a84-859a-9d831dd548af"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "97"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"61-UlxJKN+GVkJxoEYfHbz8PZCwFow\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:30:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"content\": \"il y en a combien?\",\n    \"id_post\": 1,\n    \"id_user\": 1,\n    \"date\": \"2025-10-21T12:30:56.070Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "like or Inlike a post",
+			"id": "1395040c-2738-4007-b717-f8a83e3f1946",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_drop_app}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/post/reaction?id_post=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"post",
+						"reaction"
+					],
+					"query": [
+						{
+							"key": "id_post",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a280a4eb-a49c-46f5-a445-395ac6048f83",
+					"name": "like or Inlike a post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/post/reaction?id_post=16",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"reaction"
+							],
+							"query": [
+								{
+									"key": "id_post",
+									"value": "16",
+									"uuid": "6ed2b4d7-bdba-4c57-a7df-3ae6aebdd09d"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c-ckLT9jUHd5T2AEuyi2SZmZb3Zxk\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:34:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"request failed\"\n}"
+				},
+				{
+					"id": "4cb485dc-8223-42d9-9109-7bd45c497c7a",
+					"name": "like or Inlike a post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/post/reaction?id_post=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"reaction"
+							],
+							"query": [
+								{
+									"key": "id_post",
+									"value": "1",
+									"uuid": "04fcb7f1-e32b-457b-87a1-9858c7250b72"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e-+oeGj/StSxhvx4AAnBT++uzGkKA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:34:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"request posted to like or inlike\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get posts by counting",
+			"id": "73f650c1-5f6e-4fd2-bb2d-18dc8ca8a54f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/posts/{{count}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"posts",
+						"{{count}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "36e7bbbc-1fdc-4452-bc7e-f27a5b4d1d26",
+					"name": "get posts by counting",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/posts/{{count}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"{{count}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "688"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b0-fUU2viyBTi8t7Jy/PdG+1bjR4yI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:35:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"type\": \"ARTICLE\",\n        \"description\": \"Fitafiana ho an’ny vehivavy, Asehoy ny  hatsaran-tarehinao amin&#x27;ity akanjo manaraka ny bikan&#x27;ny vatana ity. Mifangaro tsara ny lamaody sy ny fahatoniana.\",\n        \"unit_price\": 5,\n        \"stock\": 10,\n        \"create_at\": \"2025-10-21T12:09:20.416Z\",\n        \"image_url\": \"http:&#x2F;&#x2F;res.cloudinary.com&#x2F;deekkdb0h&#x2F;image&#x2F;upload&#x2F;v1752731669&#x2F;jlcrq1iosve8zimemghl.jpg\",\n        \"id_user\": 1,\n        \"_count\": {\n            \"comment\": 1,\n            \"reaction\": 1\n        },\n        \"user\": {\n            \"firstname\": \"Maeva\",\n            \"lastname\": \"Miranda\",\n            \"region\": \"Antananarivo\",\n            \"pays\": \"Madagascar\",\n            \"profile_url\": \"http:&#x2F;&#x2F;res.cloudinary.com&#x2F;deekkdb0h&#x2F;image&#x2F;upload&#x2F;v1752740366&#x2F;djrewcvy6uzdh7qrnthh.jpg\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get product by country",
+			"id": "bc97cccc-d006-4183-a4e9-ea382797bf3d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/posts/product/local/{{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"posts",
+						"product",
+						"local",
+						"{{country}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get post by user id",
+			"id": "677cbb03-cfad-419d-ba7f-f11961119069",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/post/?id_user=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"post",
+						""
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "450e9696-7fce-4867-8e18-d6ce5bcc4205",
+					"name": "get post by user id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/post/?id_user=6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								""
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "6",
+									"uuid": "ea1932ea-944f-4e00-8c6e-f43dc73ec880"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:37:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "9badcb4e-b574-4e23-85bc-8a5fe729fce3",
+			"key": "count",
+			"value": ""
+		},
+		{
+			"id": "5173fdab-c21c-4bb4-8f81-9929509e0293",
+			"key": "country",
+			"value": ""
+		}
+	]
+}

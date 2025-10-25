@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "85e690f6-f3af-49f5-86cb-e068af129c3b",
+		"name": "Comment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "43884818-85e690f6-f3af-49f5-86cb-e068af129c3b"
+	},
+	"item": [
+		{
+			"name": "get all comment",
+			"id": "b978609d-8e4d-4d0c-8540-cd35c832d442",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/comment/all/?id_post=1&is_desc=true",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comment",
+						"all",
+						""
+					],
+					"query": [
+						{
+							"key": "id_post",
+							"value": "1"
+						},
+						{
+							"key": "is_desc",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6bd756e7-3401-4f9f-b246-c5d9954e5538",
+					"name": "get all comment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/all/?id_post=2&is_desc=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"all",
+								""
+							],
+							"query": [
+								{
+									"key": "id_post",
+									"value": "2",
+									"uuid": "11b09f1e-c8e9-408f-a519-41995254e71b"
+								},
+								{
+									"key": "is_desc",
+									"value": "true",
+									"uuid": "ca503164-b1ab-4ff2-b09b-49b7451461f8"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:41:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				},
+				{
+					"id": "3affcf88-90f5-47ff-86e7-cb8f9f868756",
+					"name": "get all comment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/all/?id_post=1&is_desc=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"all",
+								""
+							],
+							"query": [
+								{
+									"key": "id_post",
+									"value": "1",
+									"uuid": "ec87ccb2-cae2-43f8-83f2-6f5c5d028a59"
+								},
+								{
+									"key": "is_desc",
+									"value": "true",
+									"uuid": "a34643ab-5be1-45aa-8a12-e307db38528a"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "262"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"106-13PRvn8wqYM07bTkWrWBtD4uYrc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Oct 2025 12:41:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"content\": \"il y en a combien?\",\n        \"date\": \"2025-10-21T12:30:56.070Z\",\n        \"user\": {\n            \"firstname\": \"Maeva\",\n            \"lastname\": \"Miranda\",\n            \"profile_url\": \"http:&#x2F;&#x2F;res.cloudinary.com&#x2F;deekkdb0h&#x2F;image&#x2F;upload&#x2F;v1752740366&#x2F;djrewcvy6uzdh7qrnthh.jpg\"\n        }\n    }\n]"
+				}
+			]
+		}
+	]
+}

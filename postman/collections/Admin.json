@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "d496321d-0ec8-4117-b683-c08ff8ea6a94",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "43884818-d496321d-0ec8-4117-b683-c08ff8ea6a94"
+	},
+	"item": [
+		{
+			"name": "sign up",
+			"id": "5fbdd08e-b229-44ff-b7b7-147af4b55de9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"firstname\": \"Tsitohaina\", \n    \"lastname\": \"RAMIARANJAFY\", \n    \"email\": \"ranjafytsito@gmail.com\", \n    \"password\": \"Azerty&123#\", \n    \"tel\": \"+261382000243\", \n    \"pays\": \"Madagascar\", \n    \"adress\": \"2 G 32 KMZ\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/admin/signup",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"admin",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign in",
+			"id": "c66b39d9-3170-4bc1-9f93-b2712c2ece6e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"email\": \"ranjafytsito@gmail.com\", \n    \"password\": \"Azerty&123#\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/admin/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
