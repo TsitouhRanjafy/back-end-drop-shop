@@ -8,26 +8,24 @@ class TransformService implements IFormaterService {
             .split(' ')      
             .map(word => word.charAt(0).toUpperCase() + word.slice(1)) 
             .join(' ');    
-        }
+    }
 
     parseMessage(data: unknown): Omit<IMessage, "id" | "sending_date"> | null {
         if (typeof data !== "object" || data === null) return null;
+        
+        if (typeof parseInt((data as any).id_expediteur) !== "number") return null;
+        
+        if (typeof parseInt((data as any).id_receiveur) !== "number") return null;
+        
+        if (typeof (data as any).content !== "string") return null;
+        
+        if (typeof (data as any).room_id !== "string") return null;
+        console.log("ok ici");
     
-        const { id_expediteur, id_receiveur, content, room_id } = data as Record<string, unknown>;
+        if (((data as any).content as string).length  > 500) return null;
     
-        if (typeof id_expediteur !== "number") return null;
-    
-        if (typeof id_receiveur !== "number") return null;
-    
-        if (typeof content !== "string") return null;
-    
-        if (typeof room_id !== "string") return null;
-    
-        if (!content.trim() || !room_id.trim()) return null;
-    
-        if (content.length > 500) return null;
-    
-        return { id_expediteur, id_receiveur, content, room_id };
+        const messageParded = data as { id_expediteur: number, id_receiveur: number, content: string, room_id: string }
+        return messageParded;
     }
 
     concateByPriorty(a: number, b: number): string {
@@ -37,21 +35,18 @@ class TransformService implements IFormaterService {
 
     parsePartialMessage(data: unknown): Omit<IMessage, "id" | "sending_date" | "room_id"> | null {
         if (typeof data !== "object" || data === null) return null;
-    
-        const { id_expediteur, id_receiveur, content } = data as Record<string, unknown>;
 
-        if (typeof id_expediteur !== "number") return null;
+        if (typeof parseInt((data as any).id_expediteur) !== "number") return null;
     
-        if (typeof id_receiveur !== "number") return null;
+        if (typeof parseInt((data as any).id_receiveur) !== "number") return null;
     
-        if (typeof content !== "string") return null;
+        if (typeof (data as any).content !== "string") return null;
     
-        if (!content.trim()) return null;
+        if ((data as any).content.length > 500) return null;
     
-        if (content.length > 500) return null;
-    
-        return { id_expediteur, id_receiveur, content };
-        }
+        const messageParsed = data as { id_expediteur: number, id_receiveur: number, content: string }
+        return messageParsed;
+    }
 }
 
 export default TransformService;
