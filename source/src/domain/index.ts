@@ -22,6 +22,8 @@ import { ISaveReactionRepository } from "./repositories/reaction/save-reaction-r
 import { IActionReactionRespository } from "./repositories/reaction/action-reaction-repository.interface";
 import { ISaveCommentRepository } from "./repositories/comment/save-comment-repository.interface";
 import { ILoadCommentRepository } from "./repositories/comment/load-comment-repository.interface";
+import { IMessage } from "./entities/message.interface";
+import { ISaveMessageRepository } from "./repositories/message/save-message-repository.interface";
 
 
 export {
@@ -37,6 +39,7 @@ export {
     IReaction,
     IComment,
     ITokenDecoded,
+    IMessage,
 
     ILoadUserRepository,
     ILoadPostRepository,
@@ -46,5 +49,6 @@ export {
     ISaveReactionRepository,
     IActionReactionRespository,
     ISaveCommentRepository,
-    ILoadCommentRepository
+    ILoadCommentRepository,
+    ISaveMessageRepository
 }

@@ -10,6 +10,7 @@ import LoadReactionRepository from "./repository/reaction/load-reaction.reposito
 import SaveCommentRepository from "./repository/comment/save-comment.repository";
 import LoadCommentRepository from "./repository/comment/load-commennt.repository";
 import FormaterService from "./services/formater.service";
+import { SaveMessageRepository } from "./repository/message/save-message.repository";
 // import LoadAdminRepository from "./database/admin/load-admin.repository";
 // import SaveAdminReposiroty from "./database/admin/save-admin.repository";
 
@@ -19,6 +20,7 @@ export {
     LoadUserRepository,
     TokenService,
     HashageService,
+    FormaterService,
     
     // LoadAdminRepository,
     // SaveAdminReposiroty,
@@ -29,5 +31,5 @@ export {
     LoadReactionRepository,
     SaveCommentRepository,
     LoadCommentRepository,
-    FormaterService
+    SaveMessageRepository
 }

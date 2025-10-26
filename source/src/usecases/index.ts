@@ -1,4 +1,5 @@
 import LoadAllCommentUsecase from "./comment/load-all-comment.usecase";
+import { SaveMessageUsecase } from "./message/save-message.usecase";
 import CommentPostUsecase from "./post/action/comment-post.usecase";
 import LikeInlikePostUsecase from "./post/action/like-Inlike-post.usecase";
 import LoadPostByUserIdUsecase from "./post/load/load-post-by-user-id.usecase";
@@ -24,5 +25,6 @@ export {
     LoadProductByCountryUsecase,
     LoadUserByIdUsecase,
     LoadAllCommentUsecase,
-    LoadPostByUserIdUsecase
+    LoadPostByUserIdUsecase,
+    SaveMessageUsecase
 }

@@ -12,7 +12,8 @@ import {
     SaveReactionRepository, 
     SaveUserReposiroty, 
     TokenService, 
-    FormaterService
+    FormaterService,
+    SaveMessageRepository
 } from "../infrastructure";
 
 import AuthUserController from "../controllers/user/auth/auth-user.controller";
@@ -41,7 +42,8 @@ import { loadAllCommentRouter } from "../interfaces/routers/comment/load-all-com
 import LoadAllCommentController from "../controllers/comment/load-all-comment.controller";
 import LoadPostByUserIdController from "../controllers/post/load/load-post-by-user-id.controller";
 import { loadPostByUserIdRouter } from "../interfaces/routers/post/load/load-post-by-user-id.router";
-import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllCommentUsecase, LoadAllUserUsecase, LoadPostByUserIdUsecase, LoadPostUsecase, LoadProductByCountryUsecase, LoadUserByIdUsecase, LoginUserUseCase, SignupUserUseCase } from "../usecases";
+import { AddNewPostUsecase, AuthUserUsecase, CommentPostUsecase, LikeInlikePostUsecase, LoadAllCommentUsecase, LoadAllUserUsecase, LoadPostByUserIdUsecase, LoadPostUsecase, LoadProductByCountryUsecase, LoadUserByIdUsecase, LoginUserUseCase, SaveMessageUsecase, SignupUserUseCase } from "../usecases";
+
 
 
 const router = Router();
@@ -49,7 +51,7 @@ const router = Router();
 // service
 const tokenService = new TokenService();
 const hashageService = new HashageService();
-const transformService = new FormaterService();
+export const transformService = new FormaterService();
 
 // Repository
 const loadUserRepository = new LoadUserRepository();
@@ -61,6 +63,7 @@ const saveReactionRepository = new SaveReactionRepository();
 const loadReactionRepository = new LoadReactionRepository();
 const saveCommentRepository = new SaveCommentRepository();
 const loadCommentRepository = new LoadCommentRepository();
+const saveMessageRepository = new SaveMessageRepository();
 // const loadCommentRepository = new LoadCommentRepository();
 
 // Usecase
@@ -76,6 +79,7 @@ const loadProductByCountryUsecase = new LoadProductByCountryUsecase(loadPostRepo
 const loadUserByIdUsecase = new LoadUserByIdUsecase(loadUserRepository);
 const loadAllCommentUsecase = new LoadAllCommentUsecase(loadCommentRepository);
 const loadPostByUserIdUsecase = new LoadPostByUserIdUsecase(loadPostRepository);
+export const saveMessageUsecase = new SaveMessageUsecase(saveMessageRepository, loadUserRepository);
 
 // Controller
 const authUserController = new AuthUserController(authUserUsecase);
@@ -90,6 +94,7 @@ const loadLocalProductController = new LoadLocalProductController(loadProductByC
 const loadUserByIdController = new LoadUserByIdController(loadUserByIdUsecase);
 const loadAllCommentController = new LoadAllCommentController(loadAllCommentUsecase);
 const loadPostByUserIdController = new LoadPostByUserIdController(loadPostByUserIdUsecase);
+
 
 // Router 
 authRouter(router, authUserController);

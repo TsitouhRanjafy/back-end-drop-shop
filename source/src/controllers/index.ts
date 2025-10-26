@@ -12,6 +12,7 @@ import LoginUserController from "../controllers/user/auth/login-user.controller"
 import SignupUserController from "../controllers/user/auth/singup-user.controller";
 import LoadAllUserController from "../controllers/user/load/load-all-user.controller";
 import LoadUserByIdController from "../controllers/user/load/load-user-by-id.controller";
+import { MessageController } from "./message/message.controller";
 
 export {
     LoadAllCommentController,
@@ -25,7 +26,8 @@ export {
     LoginUserController,
     SignupUserController,
     LoadAllUserController,
-     LoadUserByIdController ,
+    LoadUserByIdController ,
+    MessageController,
     SignupRouter,
     LoginRouter,
 }
