@@ -17,13 +17,5 @@ export const socketConfig = (
         }
     })
 
-    io.on("connection", (socket) => {
-        console.log("nouvelle client socket connected: "+ socket.id);
-
-        socket.on("disconnect", () => {
-            console.log("client disconnected: "+socket.id);
-        })
-    })
-
     return { io, httpServer };
 }
